@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.623b6bbd.css",
+    "main.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.2bf41bc1.js",
+    "static/js/453.b0bb07a3.chunk.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js",
+    "static/media/alliask.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/alliask.063ebb71b91f1461864a.mp3",
+    "static/media/adele1.jpeg": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/adele1.c279219b5ba7f0a19341.jpeg",
+    "index.html": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/index.html",
+    "main.623b6bbd.css.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.623b6bbd.css.map",
+    "main.2bf41bc1.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.2bf41bc1.js.map",
+    "453.b0bb07a3.chunk.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.623b6bbd.css",
+    "static/js/main.2bf41bc1.js"
+  ]
+}
