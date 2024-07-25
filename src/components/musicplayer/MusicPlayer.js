@@ -48,7 +48,9 @@ export const MusicPlayer = () => {
     )}:${String(seconds).padStart(2, "0")}`;
     setprogressWidth((currentTime / duration) * 100);
   };
-
+  const SetDuration = () => {
+    return audioRef.current.duration ? audioRef.current.duration : 0;
+  };
   return (
     <div className="audioCard">
       <div className="imgRotate">
@@ -80,9 +82,10 @@ export const MusicPlayer = () => {
             id="progress"
             type="range"
             min="0"
-            max={audioRef.current.duration}
+            max={SetDuration}
             step="1.9"
             value={isPlaying ? audioRef.current.currentTime : 0}
+            // onChange={handleVolumeChange}
           />
         </div>
         <p ref={runningDurationRef}>00:00</p>
