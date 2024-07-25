@@ -1,0 +1,158 @@
+.audioCard {
+  width: 250px;
+  height: 330px;
+  border-radius: 30px;
+  background: var(--card-color);
+  box-shadow: 15px 15px 30px var(--shadow-color1),
+    -15px -15px 30px var(--shadow-color2);
+  margin: auto;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 15px 15px 15px;
+  position: relative;
+  margin-top: 10rem;
+  overflow: hidden;
+  user-select: none;
+}
+#volumeRange {
+  position: absolute;
+  right: -3rem;
+  top: 5rem;
+  transform: rotate(270deg);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+.progreesData {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  color: var(--body-color);
+  justify-content: space-between;
+}
+/* .progreesData .prog {
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+}
+.progreesData .prog .val {
+  height: 100%;
+  background-color: black;
+} */
+#progress {
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  appearance: none;
+  background: transparent;
+  margin: 10px 0;
+  width: 100%;
+}
+#progress::-webkit-slider-runnable-track {
+  background-color: #eee;
+  height: 2px;
+}
+
+#progress::-moz-range-track {
+  background: black;
+  height: 0.5rem;
+}
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 5px;
+  width: 5px;
+  background: var(--body-color);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -2px;
+}
+
+#volumeRange::-webkit-slider-runnable-track {
+  background-color: var(--body-color);
+  height: 2px;
+}
+
+#volumeRange::-moz-range-track {
+  background: var(--body-color);
+  height: 0.5rem;
+}
+#volumeRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  background: var(--body-color);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+}
+.imgRotate {
+  box-shadow: 15px 15px 30px var(--shadow-color1),
+    -15px -15px 30px var(--shadow-color2);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.imgRotate img {
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--body-color);
+  border-radius: 50%;
+  padding: 5px;
+  animation-name: imgRotate;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.audioCard .controls {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--body-color);
+  cursor: pointer;
+}
+.audioCard .controls button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.audioCard .controls button ion-icon {
+  font-size: 3rem;
+  color: var(--body-color);
+  cursor: pointer;
+}
+.audioCard .controls ion-icon {
+  font-size: 2rem;
+}
+.name {
+  width: 100%;
+  text-align: center;
+  color: var(--body-color);
+  margin: 0 0 10px 0;
+  animation-name: slider;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes slider {
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translate(-200px);
+  }
+}
+@keyframes imgRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

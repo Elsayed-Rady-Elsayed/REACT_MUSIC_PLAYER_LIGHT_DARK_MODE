@@ -1,0 +1,39 @@
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .left h2 {
+  color: var(--body-color);
+}
+.header .right-controll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header .right-controll ion-icon {
+  color: var(--body-color);
+  font-size: 1.1rem;
+}
+.header .right-controll .notify {
+  position: relative;
+  margin-top: 3px;
+}
+.header .right-controll .notify span {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  font-size: 8px;
+  text-align: center;
+  z-index: 2;
+  background-color: var(--body-color);
+  color: var(--body-backGround);
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.header .right-controll span ion-icon {
+  color: var(--body-color);
+  font-size: 1.1rem;
+}
