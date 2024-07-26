@@ -24,6 +24,18 @@
 body {
   background-color: var(--body-backGround);
 }
+.content {
+  display: flex;
+  gap: 5px;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 700px) {
+  .content {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}
 /* .card {
   width: 190px;
   height: 254px;

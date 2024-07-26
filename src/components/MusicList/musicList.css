@@ -1,0 +1,60 @@
+.parent {
+  width: 40%;
+  height: 500px;
+  overflow: auto;
+  margin: 20px 10px;
+  box-shadow: 15px 15px 30px var(--shadow-color1),
+    -15px -15px 30px var(--shadow-color2);
+  padding: 10px;
+  border-radius: 30px;
+}
+.parent ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+}
+.parent ul li {
+  cursor: pointer;
+  height: 50px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border-radius: 30px;
+  padding: 2px;
+}
+.parent ul li img {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.parent ul li div .sName {
+  margin-bottom: 10px;
+  color: var(--body-color);
+  text-transform: capitalize;
+}
+.parent ul li div .artist {
+  text-transform: uppercase;
+  color: var(--body-color);
+  font-size: small;
+}
+.parent ul li:hover {
+  box-shadow: 15px 15px 30px var(--shadow-color1),
+    -15px -15px 30px var(--shadow-color2);
+}
+.active {
+  box-shadow: 15px 15px 30px var(--shadow-color1),
+    -15px -15px 30px var(--shadow-color2);
+}
+.notactive {
+  box-shadow: none;
+}
+@media screen and (max-width: 700px) {
+  .parent {
+    width: 80%;
+  }
+}
