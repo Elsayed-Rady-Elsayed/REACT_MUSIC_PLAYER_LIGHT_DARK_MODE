@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.css": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.623b6bbd.css",
-    "main.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.2bf41bc1.js",
+    "main.css": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.0f67d43f.css",
+    "main.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.ff0084b4.js",
     "static/js/453.b0bb07a3.chunk.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js",
+    "static/media/loveisgame.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/loveisgame.eca860666ff9df4fb7c1.mp3",
+    "static/media/whenwewereyoung.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/whenwewereyoung.2657152fb050f31e70ba.mp3",
+    "static/media/loveindark.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/loveindark.329e116710e3bb333e5d.mp3",
+    "static/media/someonelikeyou.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/someonelikeyou.22fc25af5c56b3f55abc.mp3",
     "static/media/alliask.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/alliask.063ebb71b91f1461864a.mp3",
+    "static/media/iwillbewaiting.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/iwillbewaiting.c556e2c8ea0d54cfdcc6.mp3",
+    "static/media/easyonme.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/easyonme.8101b9f4190e5b3b0e57.mp3",
     "static/media/adele1.jpeg": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/adele1.c279219b5ba7f0a19341.jpeg",
     "index.html": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/index.html",
-    "main.623b6bbd.css.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.623b6bbd.css.map",
-    "main.2bf41bc1.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.2bf41bc1.js.map",
+    "main.0f67d43f.css.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.0f67d43f.css.map",
+    "main.ff0084b4.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.ff0084b4.js.map",
     "453.b0bb07a3.chunk.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.623b6bbd.css",
-    "static/js/main.2bf41bc1.js"
+    "static/css/main.0f67d43f.css",
+    "static/js/main.ff0084b4.js"
   ]
 }
