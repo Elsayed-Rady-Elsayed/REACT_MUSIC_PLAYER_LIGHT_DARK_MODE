@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./musicPlayer.css";
-import alliask from "../../assets/alliask.mp3";
-import adele1 from "../../assets/images/adele1.jpeg";
 import SongsList from "../../listOfSongs";
 import { useRecoilState } from "recoil";
 import { idxAtom } from "../recoil/idxAtom";
 import { ClickedAtom } from "../recoil/clcikedAtom";
-console.log(SongsList);
+
 export const MusicPlayer = () => {
   const audioRef = useRef(null);
   const durationRef = useRef(null);
@@ -14,16 +12,16 @@ export const MusicPlayer = () => {
   const intervalIdRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
-  const [progressWidth, setprogressWidth] = useState(0);
+  const [progressWidth, setProgressWidth] = useState(0);
   const [idx, setIdx] = useState(0);
   const [recIdx, setRecIdx] = useRecoilState(idxAtom);
   const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
-  const [clonedList, setClonedList] = useState(...SongsList);
+  const [clonedList, setClonedList] = useState(SongsList);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+
   useEffect(() => {
-    console.log(currentMusic);
-    if (currentMusic.audio != null) {
+    if (currentMusic.audio) {
       setClonedList(currentMusic);
       setIsPlaying(false);
     } else {
@@ -32,19 +30,42 @@ export const MusicPlayer = () => {
     }
   }, [currentMusic]);
 
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    const updateProgress = () => {
+      if (audio.duration) {
+        const currentProgress = (audio.currentTime / audio.duration) * 100;
+        setProgressWidth(currentProgress);
+        setCurrentTime(audio.currentTime);
+      }
+    };
+
+    audio.addEventListener("timeupdate", updateProgress);
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+    };
+  }, []);
+
   const playAudio = () => {
+    const audio = audioRef.current;
+    const duration = audio.duration;
+
     if (!isPlaying) {
       setCurrentTime(0);
     }
-    const duration = audioRef.current.duration;
+
+    audio.play();
+    intervalIdRef.current = setInterval(changeValue, 1000);
+
     const minutes = Math.floor(duration / 60);
     const seconds = Math.floor(duration % 60);
     durationRef.current.innerText = `${String(minutes).padStart(
       2,
       "0"
     )}:${String(seconds).padStart(2, "0")}`;
-    audioRef.current.play();
-    intervalIdRef.current = setInterval(changeValue, 1000);
+
     setDuration(duration);
     setIsPlaying(true);
   };
@@ -70,23 +91,47 @@ export const MusicPlayer = () => {
       2,
       "0"
     )}:${String(seconds).padStart(2, "0")}`;
-    setprogressWidth((currentTime / duration) * 100);
   };
-  const SetDuration = () => {
-    return audioRef.current.duration ? audioRef.current.duration : 0;
-  };
+
   const handleProgressChange = (e) => {
     const audio = audioRef.current;
-    const newTime = (e.target.value / 100) * duration;
+    const newProgress = e.target.value;
+    const newTime = (newProgress / 100) * duration;
     audio.currentTime = newTime;
     setCurrentTime(newTime);
+    setProgressWidth(newProgress);
   };
+
+  const handlePrevious = () => {
+    if (idx > 0) {
+      setIdx(idx - 1);
+      setRecIdx((rec) => rec - 1);
+    }
+    setCurrentMusic({});
+    setIsPlaying(false);
+  };
+
+  const handleNext = () => {
+    if (idx < SongsList.length - 1) {
+      setIdx(idx + 1);
+      setRecIdx((rec) => rec + 1);
+    }
+    setCurrentMusic({});
+    setIsPlaying(false);
+  };
+
   return (
     <div className="audioCard">
       <div className="imgRotate">
+        <div className="smImg">
+          <img
+            src={clonedList.length > 1 ? clonedList[idx].pic : clonedList.pic}
+            alt="Album Art"
+          />
+        </div>
         <img
           src={clonedList.length > 1 ? clonedList[idx].pic : clonedList.pic}
-          alt="Adele"
+          alt="Album Art"
         />
       </div>
       <audio
@@ -99,14 +144,7 @@ export const MusicPlayer = () => {
       <div className="controls">
         <ion-icon
           name="play-back-circle-outline"
-          onClick={() => {
-            if (idx > 0) {
-              setIdx(idx - 1);
-              setRecIdx((rec) => rec - 1);
-            }
-            setCurrentMusic({});
-            setIsPlaying(false);
-          }}
+          onClick={handlePrevious}
         ></ion-icon>
         <button onClick={isPlaying ? pauseAudio : playAudio}>
           {isPlaying && !audioRef.current.ended ? (
@@ -117,26 +155,19 @@ export const MusicPlayer = () => {
         </button>
         <ion-icon
           name="play-forward-circle-outline"
-          onClick={() => {
-            if (idx < SongsList.length - 1) {
-              setIdx(idx + 1);
-              setRecIdx((rec) => rec + 1);
-            }
-            setCurrentMusic({});
-            setIsPlaying(false);
-          }}
+          onClick={handleNext}
         ></ion-icon>
       </div>
-      <div className="progreesData">
+      <div className="progressData">
         <p ref={durationRef}>00:00</p>
         <div className="prog">
           <input
             id="progress"
             type="range"
             min="0"
-            max={SetDuration}
-            step="1.9"
-            value={isPlaying ? (currentTime / duration) * 100 : 0}
+            max="100"
+            step="1"
+            value={progressWidth}
             onChange={handleProgressChange}
           />
         </div>

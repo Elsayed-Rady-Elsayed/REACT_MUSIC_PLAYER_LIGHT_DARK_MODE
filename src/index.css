@@ -29,6 +29,9 @@ body {
   gap: 5px;
   justify-content: space-evenly;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 @media screen and (max-width: 700px) {
   .content {
     flex-direction: column;

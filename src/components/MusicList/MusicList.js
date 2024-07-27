@@ -31,8 +31,15 @@ export const MusicList = () => {
       </li>
     );
   });
+  const hideList = () => {
+    document.getElementById("parent").classList.remove("show");
+  };
   return (
-    <div className="parent">
+    <div className="parent" id="parent">
+      <div className="headerList">
+        <span>mohamed sadek elmenshawy</span>
+        <button onClick={hideList}>x</button>
+      </div>
       <ul className="list">{showList}</ul>
     </div>
   );
