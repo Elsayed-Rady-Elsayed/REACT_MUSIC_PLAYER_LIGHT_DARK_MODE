@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="left">
-        <h2>Music Player</h2>
+        <h2>Quran</h2>
       </div>
       <div className="right-controll">
         <ion-icon name="settings-outline"></ion-icon>
