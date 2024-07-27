@@ -153,8 +153,8 @@
 @media screen and (max-width: 700px) {
   .audioCard {
     width: 90%;
-    height: 80vh;
-    margin-top: 2rem;
+    height: 70vh;
+    margin-top: 1rem;
     /* margin: 0 20px; */
     padding: 2px;
     display: flex;
