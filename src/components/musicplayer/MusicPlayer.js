@@ -19,7 +19,8 @@ export const MusicPlayer = () => {
   const [recIdx, setRecIdx] = useRecoilState(idxAtom);
   const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
   const [clonedList, setClonedList] = useState(...SongsList);
-  const changeIsPlaying = () => {};
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   useEffect(() => {
     console.log(currentMusic);
     if (currentMusic.audio != null) {
@@ -32,6 +33,9 @@ export const MusicPlayer = () => {
   }, [currentMusic]);
 
   const playAudio = () => {
+    if (!isPlaying) {
+      setCurrentTime(0);
+    }
     const duration = audioRef.current.duration;
     const minutes = Math.floor(duration / 60);
     const seconds = Math.floor(duration % 60);
@@ -41,6 +45,7 @@ export const MusicPlayer = () => {
     )}:${String(seconds).padStart(2, "0")}`;
     audioRef.current.play();
     intervalIdRef.current = setInterval(changeValue, 1000);
+    setDuration(duration);
     setIsPlaying(true);
   };
 
@@ -70,6 +75,12 @@ export const MusicPlayer = () => {
   const SetDuration = () => {
     return audioRef.current.duration ? audioRef.current.duration : 0;
   };
+  const handleProgressChange = (e) => {
+    const audio = audioRef.current;
+    const newTime = (e.target.value / 100) * duration;
+    audio.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
   return (
     <div className="audioCard">
       <div className="imgRotate">
@@ -91,7 +102,7 @@ export const MusicPlayer = () => {
           onClick={() => {
             if (idx > 0) {
               setIdx(idx - 1);
-              setRecIdx(idx - 1);
+              setRecIdx((rec) => rec - 1);
             }
             setCurrentMusic({});
             setIsPlaying(false);
@@ -109,7 +120,7 @@ export const MusicPlayer = () => {
           onClick={() => {
             if (idx < SongsList.length - 1) {
               setIdx(idx + 1);
-              setRecIdx(idx + 1);
+              setRecIdx((rec) => rec + 1);
             }
             setCurrentMusic({});
             setIsPlaying(false);
@@ -119,24 +130,14 @@ export const MusicPlayer = () => {
       <div className="progreesData">
         <p ref={durationRef}>00:00</p>
         <div className="prog">
-          {/* <div
-            className="val"
-            style={{
-              width: `${progressWidth}%`,
-            }}
-          ></div> */}
           <input
             id="progress"
             type="range"
             min="0"
             max={SetDuration}
             step="1.9"
-            value={isPlaying ? progressWidth : 0}
-            onChange={(evt) => {
-              console.log(progressWidth);
-              audioRef.current.currentTime = evt.target.value;
-            }}
-            // onChange={handleVolumeChange}
+            value={isPlaying ? (currentTime / duration) * 100 : 0}
+            onChange={handleProgressChange}
           />
         </div>
         <p ref={runningDurationRef}>00:00</p>

@@ -7,11 +7,11 @@ import { ClickedAtom } from "../recoil/clcikedAtom";
 export const MusicList = () => {
   const [recIdx, setRecIdx] = useRecoilState(idxAtom);
   const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
-
   let showList = SongsList.map((el, idx) => {
     return (
       <li
         onClick={() => {
+          setRecIdx(idx);
           setCurrentMusic({
             audio: el.audio,
             pic: el.pic,
@@ -26,7 +26,7 @@ export const MusicList = () => {
         <img src={el.pic} alt="" className="img" />
         <div>
           <p className="sName">{el.text}</p>
-          <p className="artist">adele</p>
+          <p className="artist">محمد صديق المنشاوي</p>
         </div>
       </li>
     );

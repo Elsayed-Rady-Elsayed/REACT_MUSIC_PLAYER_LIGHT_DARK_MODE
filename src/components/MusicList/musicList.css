@@ -36,6 +36,10 @@
   margin-bottom: 10px;
   color: var(--body-color);
   text-transform: capitalize;
+  height: 1rem;
+  /* background-color: red; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .parent ul li div .artist {
   text-transform: uppercase;
