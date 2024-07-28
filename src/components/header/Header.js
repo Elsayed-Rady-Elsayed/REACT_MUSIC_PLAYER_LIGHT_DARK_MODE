@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.css";
 import { Toggle } from "../toggle/Toggle";
+import SongsList from "../../listOfSongs";
 export const Header = () => {
   const showList = () => {
     document.getElementById("parent").classList.toggle("show");
@@ -11,10 +12,12 @@ export const Header = () => {
         <h2>Quran</h2>
       </div>
       <div className="right-controll">
-        <ion-icon onClick={showList} name="list-circle-outline"></ion-icon>{" "}
         <span className="notify">
-          <span className="circle">2</span>
-          <ion-icon name="notifications-outline"></ion-icon>
+          <span className="circle">{SongsList.length}</span>
+          <ion-icon
+            onClick={showList}
+            name="list-circle-outline"
+          ></ion-icon>{" "}
         </span>
         <Toggle />
       </div>

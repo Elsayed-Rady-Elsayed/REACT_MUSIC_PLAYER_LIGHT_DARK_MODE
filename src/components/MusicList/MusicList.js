@@ -37,7 +37,6 @@ export const MusicList = () => {
   return (
     <div className="parent" id="parent">
       <div className="headerList">
-        <span>mohamed sadek elmenshawy</span>
         <button onClick={hideList}>x</button>
       </div>
       <ul className="list">{showList}</ul>

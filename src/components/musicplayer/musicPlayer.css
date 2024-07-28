@@ -136,10 +136,10 @@
 }
 @keyframes slider {
   from {
-    transform: translateX(200px);
+    transform: translateX(100%);
   }
   to {
-    transform: translate(-200px);
+    transform: translate(-100%);
   }
 }
 @keyframes imgRotate {
@@ -162,10 +162,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem 15px 15px 15px;
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translateY(0%);
   }
   #volumeRange {
     position: absolute;
-    right: 25%;
+    right: 32%;
     top: 1rem;
     transform: rotate(0);
     -webkit-appearance: none;
