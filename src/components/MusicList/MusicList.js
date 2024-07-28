@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./musicList.css";
 import SongsList from "../../listOfSongs";
 import { idxAtom } from "../recoil/idxAtom";
 import { useRecoilState } from "recoil";
 import { ClickedAtom } from "../recoil/clcikedAtom";
+import { useTranslation } from "react-i18next";
 export const MusicList = () => {
   const [recIdx, setRecIdx] = useRecoilState(idxAtom);
   const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
+  const { t, i18n } = useTranslation();
+  const [changeLang, setChangeLang] = useState();
+
+  console.log(i18n.language);
+  useEffect(() => {
+    if (i18n.language == "en") {
+      setChangeLang(false);
+    } else {
+      setChangeLang(true);
+    }
+  }, [i18n.language]);
   let showList = SongsList.map((el, idx) => {
     return (
       <li
@@ -16,17 +28,23 @@ export const MusicList = () => {
             audio: el.audio,
             pic: el.pic,
             text: el.text,
+            texten: el.texten,
             active: true,
           });
         }}
         key={idx}
         data-id={idx}
-        className={`item ${idx === recIdx ? "active" : "notactive"}`}
+        className={`${changeLang ? "ar" : ""} item ${
+          idx === recIdx ? "active" : "notactive"
+        }`}
       >
         <img src={el.pic} alt="" className="img" />
         <div>
-          <p className="sName">{el.text}</p>
-          <p className="artist">محمد صديق المنشاوي</p>
+          <p className="sName">
+            {t("textQuran", { returnObjects: true })[idx]}
+          </p>
+
+          <p className="artist">{t("qara")}</p>
         </div>
       </li>
     );

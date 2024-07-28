@@ -14,41 +14,49 @@ let SongsList = [
     audio: ElFataha,
     pic: Elminshwey,
     text: "الفاتحه - محمد صديق المنشاوي",
+    texten: "Al-Fatihah - Mohamed Sadek Elmenshawy",
   },
   {
     audio: sad,
     pic: elmanshawy2,
     text: "ص - محمد صديق المنشاوي",
+    texten: "Sad - Mohamed Sadek Elmenshawy",
   },
   {
     audio: ghafer,
     pic: elmanshawy2,
     text: "غافر - محمد صديق المنشاوي",
+    texten: "Ghafir - Mohamed Sadek Elmenshawy",
   },
   {
     audio: elshora,
     pic: Elminshwey,
     text: "الشوري - محمد صديق المنشاوي",
+    texten: "Ash-Shuraa - Mohamed Sadek Elmenshawy",
   },
   {
     audio: qaf,
     pic: Elminshwey,
     text: "ق - محمد صديق المنشاوي",
+    texten: "Qaf - Mohamed Sadek Elmenshawy",
   },
   {
     audio: elwaqaa,
     pic: elmanshawy2,
     text: "الواقعه - محمد صديق المنشاوي",
+    texten: "Al-Wai'ah - Mohamed Sadek Elmenshawy",
   },
   {
     audio: elqara3a,
     pic: Elminshwey,
     text: "القارعه - محمد صديق المنشاوي",
+    texten: "Al-Qari'ah - Mohamed Sadek Elmenshawy",
   },
   {
     audio: eltaksr,
     pic: elmanshawy2,
     text: "التكاثر - محمد صديق المنشاوي",
+    texten: "At-Takathur - Mohamed Sadek Elmenshawy",
   },
 ];
 export default SongsList;

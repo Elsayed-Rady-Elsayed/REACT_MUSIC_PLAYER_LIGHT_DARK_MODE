@@ -4,6 +4,7 @@ import SongsList from "../../listOfSongs";
 import { useRecoilState } from "recoil";
 import { idxAtom } from "../recoil/idxAtom";
 import { ClickedAtom } from "../recoil/clcikedAtom";
+import { useTranslation } from "react-i18next";
 
 export const MusicPlayer = () => {
   const audioRef = useRef(null);
@@ -19,7 +20,7 @@ export const MusicPlayer = () => {
   const [clonedList, setClonedList] = useState(SongsList);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-
+  const { t, i18n } = useTranslation();
   useEffect(() => {
     if (currentMusic.audio) {
       setClonedList(currentMusic);
@@ -139,7 +140,13 @@ export const MusicPlayer = () => {
         src={clonedList.length > 1 ? clonedList[idx].audio : clonedList.audio}
       />
       <div className="name">
-        {clonedList.length > 1 ? clonedList[idx].text : clonedList.text}
+        {clonedList.length > 1
+          ? i18n.language == "ar"
+            ? clonedList[idx].text
+            : clonedList[idx].texten
+          : i18n.language == "ar"
+          ? clonedList.text
+          : clonedList.texten}
       </div>
       <div className="controls">
         <ion-icon
