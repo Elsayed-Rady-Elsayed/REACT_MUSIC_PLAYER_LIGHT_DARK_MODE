@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.de3430fb.css",
-    "main.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.7f08a9dd.js",
+    "main.css": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.f568288d.css",
+    "main.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.0eaa7009.js",
     "static/js/453.b0bb07a3.chunk.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js",
     "static/media/040.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/040.a3eab88e10973cd8ce78.mp3",
     "static/media/042.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/042.8d50bb9023c96b7df610.mp3",
@@ -14,12 +14,12 @@
     "static/media/elmanshawy2.jpg": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/elmanshawy2.42bc9182b4b05f66a20e.jpg",
     "static/media/Elminshwey.jpg": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/Elminshwey.64144053de37fe829169.jpg",
     "index.html": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/index.html",
-    "main.de3430fb.css.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.de3430fb.css.map",
-    "main.7f08a9dd.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.7f08a9dd.js.map",
+    "main.f568288d.css.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.f568288d.css.map",
+    "main.0eaa7009.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.0eaa7009.js.map",
     "453.b0bb07a3.chunk.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.de3430fb.css",
-    "static/js/main.7f08a9dd.js"
+    "static/css/main.f568288d.css",
+    "static/js/main.0eaa7009.js"
   ]
 }
