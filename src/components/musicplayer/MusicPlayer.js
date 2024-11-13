@@ -25,11 +25,38 @@ export const MusicPlayer = () => {
   console.log(currentMusic);
   const [soundList, setSoundList] = useState([]);
   useEffect(() => {
-    currentMusic.item.ayahs?.map((el, idx) => {
+    currentMusic.item?.ayahs.map((el, idx) => {
       setSoundList((prev) => [...prev, el.audio]);
     });
   }, []);
   console.log(soundList);
+  const [currentTrack, setCurrentTrack] = useState(0);
+
+  useEffect(() => {
+    // Set the audio source to the current track URL
+    if (audioRef.current) {
+      audioRef.current.src = soundList[currentTrack];
+      audioRef.current.play();
+    }
+  }, [currentTrack]);
+
+  const handleNextTrack = () => {
+    setCurrentTrack((prevTrack) =>
+      prevTrack < soundList.length - 1 ? prevTrack + 1 : 0
+    );
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.addEventListener("ended", handleNextTrack);
+    }
+    return () => {
+      if (audio) {
+        audio.removeEventListener("ended", handleNextTrack);
+      }
+    };
+  }, [audioRef]);
 
   // useEffect(() => {
   //   console.log(currentMusic);
@@ -157,18 +184,24 @@ export const MusicPlayer = () => {
           </p>
         </div>
       </div>
-      {/* <audio
-        ref={audioRef}
-        src={clonedList.length > 1 ? clonedList[idx].audio : clonedList.audio}
-      /> */}
+      <audio ref={audioRef} />
+      <div>
+        {/* <button onClick={() => audioRef.current.play()}>Play</button>
+        <button onClick={() => audioRef.current.pause()}>Pause</button>
+        <button onClick={handleNextTrack}>Next Track</button> */}
+      </div>
 
       {/* <div className="controls">
         <div className="control">
           <ion-icon
             name="play-back-circle-outline"
-            onClick={handlePrevious}
+            onClick={() => audioRef.current.play()}
           ></ion-icon>
-          <button onClick={isPlaying ? pauseAudio : playAudio}>
+          <button
+            onClick={
+              isPlaying ? audioRef.current.pause() : audioRef.current.play()
+            }
+          >
             {isPlaying && !audioRef.current.ended ? (
               <ion-icon name="pause-circle-outline"></ion-icon>
             ) : (
@@ -177,7 +210,7 @@ export const MusicPlayer = () => {
           </button>
           <ion-icon
             name="play-forward-circle-outline"
-            onClick={handleNext}
+            // onClick={handleNext}
           ></ion-icon>
         </div>
         <div className="progressData">
@@ -190,7 +223,7 @@ export const MusicPlayer = () => {
               max="100"
               step="1"
               value={progressWidth}
-              onChange={handleProgressChange}
+              // onChange={handleProgressChange}
             />
           </div>
           <p ref={runningDurationRef}>00:00</p>
