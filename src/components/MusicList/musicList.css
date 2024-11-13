@@ -36,6 +36,7 @@
   text-align: end;
 }
 .parent ul li div .sName {
+  margin-right: 11px;
   margin-bottom: 10px;
   color: var(--body-color);
   text-transform: capitalize;
@@ -46,6 +47,7 @@
   font-size: 22px;
 }
 .parent ul li div .artist {
+  margin-right: 11px;
   text-transform: capitalize;
   color: var(--body-color);
   font-size: 16px;

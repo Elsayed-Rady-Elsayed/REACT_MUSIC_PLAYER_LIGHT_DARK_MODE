@@ -80,11 +80,8 @@ export const MusicList = () => {
       onClick={() => {
         setRecIdx(idx);
         setCurrentMusic({
-          audio: el.audio,
-          pic: el.pic,
-          text: el.text,
-          texten: el.texten,
-          active: true,
+          item: el,
+          edition: edition,
         });
       }}
       key={idx}
@@ -100,7 +97,7 @@ export const MusicList = () => {
         </p>
 
         <p className="artist">
-          {i18n.language === "en" ? edition.identifier : edition.name}
+          {i18n.language === "en" ? edition.englishName : edition.name}
         </p>
       </div>
     </li>

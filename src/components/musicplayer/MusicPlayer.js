@@ -22,128 +22,125 @@ export const MusicPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const { t, i18n } = useTranslation();
+  console.log(currentMusic);
 
-  useEffect(() => {
-    if (currentMusic.audio) {
-      setClonedList(currentMusic);
-      setIsPlaying(false);
-    } else {
-      setClonedList(SongsList);
-      setIsPlaying(false);
-    }
-  }, [currentMusic]);
+  // useEffect(() => {
+  //   console.log(currentMusic);
 
-  useEffect(() => {
-    const audio = audioRef.current;
+  //   if (currentMusic.item.audio) {
+  //     setClonedList(currentMusic);
+  //     setIsPlaying(false);
+  //   } else {
+  //     setClonedList(SongsList);
+  //     setIsPlaying(false);
+  //   }
+  // }, [currentMusic]);
 
-    const updateProgress = () => {
-      if (audio.duration) {
-        const currentProgress = (audio.currentTime / audio.duration) * 100;
-        setProgressWidth(currentProgress);
-        setCurrentTime(audio.currentTime);
-      }
-    };
+  // useEffect(() => {
+  //   const audio = audioRef.current;
 
-    audio.addEventListener("timeupdate", updateProgress);
+  //   const updateProgress = () => {
+  //     if (audio.duration) {
+  //       const currentProgress = (audio.currentTime / audio.duration) * 100;
+  //       setProgressWidth(currentProgress);
+  //       setCurrentTime(audio.currentTime);
+  //     }
+  //   };
 
-    return () => {
-      audio.removeEventListener("timeupdate", updateProgress);
-    };
-  }, []);
+  //   audio.addEventListener("timeupdate", updateProgress);
 
-  const playAudio = () => {
-    const audio = audioRef.current;
-    const duration = audio.duration;
+  //   return () => {
+  //     audio.removeEventListener("timeupdate", updateProgress);
+  //   };
+  // }, []);
 
-    if (!isPlaying) {
-      setCurrentTime(0);
-    }
+  // const playAudio = () => {
+  //   const audio = audioRef.current;
+  //   const duration = audio.duration;
 
-    audio.play();
-    intervalIdRef.current = setInterval(changeValue, 1000);
+  //   if (!isPlaying) {
+  //     setCurrentTime(0);
+  //   }
 
-    const minutes = Math.floor(duration / 60);
-    const seconds = Math.floor(duration % 60);
-    durationRef.current.innerText = `${String(minutes).padStart(
-      2,
-      "0"
-    )}:${String(seconds).padStart(2, "0")}`;
+  //   audio.play();
+  //   intervalIdRef.current = setInterval(changeValue, 1000);
 
-    setDuration(duration);
-    setIsPlaying(true);
-  };
+  //   const minutes = Math.floor(duration / 60);
+  //   const seconds = Math.floor(duration % 60);
+  //   durationRef.current.innerText = `${String(minutes).padStart(
+  //     2,
+  //     "0"
+  //   )}:${String(seconds).padStart(2, "0")}`;
 
-  const pauseAudio = () => {
-    clearInterval(intervalIdRef.current);
-    audioRef.current.pause();
-    setIsPlaying(false);
-  };
+  //   setDuration(duration);
+  //   setIsPlaying(true);
+  // };
 
-  const handleVolumeChange = (event) => {
-    const volume = event.target.value;
-    audioRef.current.volume = volume;
-    setVolume(volume);
-  };
+  // const pauseAudio = () => {
+  //   clearInterval(intervalIdRef.current);
+  //   audioRef.current.pause();
+  //   setIsPlaying(false);
+  // };
 
-  const changeValue = () => {
-    const currentTime = audioRef.current.currentTime;
-    const duration = audioRef.current.duration;
-    const minutes = Math.floor(currentTime / 60);
-    const seconds = Math.floor(currentTime % 60);
-    runningDurationRef.current.innerText = `${String(minutes).padStart(
-      2,
-      "0"
-    )}:${String(seconds).padStart(2, "0")}`;
-  };
+  // const handleVolumeChange = (event) => {
+  //   const volume = event.target.value;
+  //   audioRef.current.volume = volume;
+  //   setVolume(volume);
+  // };
 
-  const handleProgressChange = (e) => {
-    const audio = audioRef.current;
-    const newProgress = e.target.value;
-    const newTime = (newProgress / 100) * duration;
-    audio.currentTime = newTime;
-    setCurrentTime(newTime);
-    setProgressWidth(newProgress);
-  };
+  // const changeValue = () => {
+  //   const currentTime = audioRef.current.currentTime;
+  //   const duration = audioRef.current.duration;
+  //   const minutes = Math.floor(currentTime / 60);
+  //   const seconds = Math.floor(currentTime % 60);
+  //   runningDurationRef.current.innerText = `${String(minutes).padStart(
+  //     2,
+  //     "0"
+  //   )}:${String(seconds).padStart(2, "0")}`;
+  // };
 
-  const handlePrevious = () => {
-    if (idx > 0) {
-      setIdx(idx - 1);
-      setRecIdx((rec) => rec - 1);
-    }
-    setCurrentMusic({});
-    setIsPlaying(false);
-  };
+  // const handleProgressChange = (e) => {
+  //   const audio = audioRef.current;
+  //   const newProgress = e.target.value;
+  //   const newTime = (newProgress / 100) * duration;
+  //   audio.currentTime = newTime;
+  //   setCurrentTime(newTime);
+  //   setProgressWidth(newProgress);
+  // };
 
-  const handleNext = () => {
-    if (idx < SongsList.length - 1) {
-      setIdx(idx + 1);
-      setRecIdx((rec) => rec + 1);
-    }
-    setCurrentMusic({});
-    setIsPlaying(false);
-  };
+  // const handlePrevious = () => {
+  //   if (idx > 0) {
+  //     setIdx(idx - 1);
+  //     setRecIdx((rec) => rec - 1);
+  //   }
+  //   setCurrentMusic({});
+  //   setIsPlaying(false);
+  // };
+
+  // const handleNext = () => {
+  //   if (idx < SongsList.length - 1) {
+  //     setIdx(idx + 1);
+  //     setRecIdx((rec) => rec + 1);
+  //   }
+  //   setCurrentMusic({});
+  //   setIsPlaying(false);
+  // };
 
   return (
     <div className="audioCard">
       <div className="imgRotate">
-        {/* <div className="smImg">
-          <img
-            src={clonedList.length > 1 ? clonedList[idx].pic : clonedList.pic}
-            alt="Album Art"
-          />
-        </div> */}
         <img
           src={clonedList.length > 1 ? clonedList[idx].pic : clonedList.pic}
           alt="Album Art"
         />
         <div className="name">
-          {clonedList.length > 1
+          {clonedList.length
             ? i18n.language == "ar"
-              ? clonedList[idx].text
-              : clonedList[idx].texten
+              ? currentMusic.edition.name
+              : currentMusic.edition.englishName
             : i18n.language == "ar"
-            ? clonedList.text
-            : clonedList.texten}
+            ? currentMusic.edition.name
+            : currentMusic.edition.englishName}
           <p>{t("qara")}</p>
         </div>
       </div>
@@ -152,7 +149,7 @@ export const MusicPlayer = () => {
         src={clonedList.length > 1 ? clonedList[idx].audio : clonedList.audio}
       />
 
-      <div className="controls">
+      {/* <div className="controls">
         <div className="control">
           <ion-icon
             name="play-back-circle-outline"
@@ -185,9 +182,9 @@ export const MusicPlayer = () => {
           </div>
           <p ref={runningDurationRef}>00:00</p>
         </div>
-      </div>
+      </div> */}
 
-      <input
+      {/* <input
         className="volumeRange"
         id="volumeRange"
         type="range"
@@ -196,7 +193,7 @@ export const MusicPlayer = () => {
         step="0.1"
         value={volume}
         onChange={handleVolumeChange}
-      />
+      /> */}
     </div>
   );
 };
