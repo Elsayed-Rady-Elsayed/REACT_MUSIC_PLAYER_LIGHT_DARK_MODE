@@ -66,6 +66,12 @@
 .headerList {
   /* display: none; */
 }
+.left {
+  text-align: end;
+}
+.right {
+  text-align: start;
+}
 .headerList div:first-of-type {
   display: flex;
   align-items: center;

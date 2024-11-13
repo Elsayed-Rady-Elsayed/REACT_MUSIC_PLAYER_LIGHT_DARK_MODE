@@ -21,36 +21,6 @@ export const MusicList = () => {
       setChangeLang(true);
     }
   }, [i18n.language]);
-  // let showList = SongsList.map((el, idx) => {
-  //   return (
-  //     <li
-  //       onClick={() => {
-  //         setRecIdx(idx);
-  //         setCurrentMusic({
-  //           audio: el.audio,
-  //           pic: el.pic,
-  //           text: el.text,
-  //           texten: el.texten,
-  //           active: true,
-  //         });
-  //       }}
-  //       key={idx}
-  //       data-id={idx}
-  //       className={`${changeLang ? "ar" : ""} item ${
-  //         idx === recIdx ? "active" : "notactive"
-  //       }`}
-  //     >
-  //       <img src={el.pic} alt="" className="img" />
-  //       <div>
-  //         <p className="sName">
-  //           {t("textQuran", { returnObjects: true })[idx]}
-  //         </p>
-
-  //         <p className="artist">{t("qara")}</p>
-  //       </div>
-  //     </li>
-  //   );
-  // });
   const hideList = () => {
     document.getElementById("parent").classList.remove("show");
   };
@@ -81,7 +51,7 @@ export const MusicList = () => {
     >
       <img src={el.pic} alt="" className="img" />
       <div>
-        <p className="sName">
+        <p className={`sName ${i18n.language === "ar" ? "right" : "left"}`}>
           {i18n.language === "en" ? el.englishName : el.name}
         </p>
 
@@ -98,7 +68,6 @@ export const MusicList = () => {
       <div className="headerList">
         <button onClick={hideList}>x</button>
       </div>
-      {/* <ul className="list">{showList}</ul> */}
       <ul className="list">{listOfSurah}</ul>
     </div>
   );
