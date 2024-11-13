@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { idxAtom } from "../recoil/idxAtom";
 import { ClickedAtom } from "../recoil/clcikedAtom";
 import { useTranslation } from "react-i18next";
+import { SurahAtom } from "../recoil/surah";
 
 export const MusicPlayer = () => {
   const audioRef = useRef(null);
@@ -21,6 +22,7 @@ export const MusicPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const { t, i18n } = useTranslation();
+
   useEffect(() => {
     if (currentMusic.audio) {
       setClonedList(currentMusic);

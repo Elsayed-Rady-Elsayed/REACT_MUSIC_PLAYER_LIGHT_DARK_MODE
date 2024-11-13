@@ -6,7 +6,6 @@ import { idxAtom } from "../recoil/idxAtom";
 const ContentView = () => {
   const [clonedList, setClonedList] = useState(SongsList);
   const [recIdx, setRecIdx] = useRecoilState(idxAtom);
-  console.log(recIdx);
 
   return (
     <div className="textConent">

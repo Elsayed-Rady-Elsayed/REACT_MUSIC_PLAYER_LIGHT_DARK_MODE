@@ -11,7 +11,6 @@ export const MusicList = () => {
   const { t, i18n } = useTranslation();
   const [changeLang, setChangeLang] = useState();
 
-  console.log(i18n.language);
   useEffect(() => {
     if (i18n.language == "en") {
       setChangeLang(false);
