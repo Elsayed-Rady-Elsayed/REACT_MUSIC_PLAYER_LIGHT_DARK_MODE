@@ -22,41 +22,41 @@ export const MusicPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const { t, i18n } = useTranslation();
-  console.log(currentMusic);
+  // console.log(currentMusic);
   const [soundList, setSoundList] = useState([]);
-  useEffect(() => {
-    currentMusic.item?.ayahs.map((el, idx) => {
-      setSoundList((prev) => [...prev, el.audio]);
-    });
-  }, []);
-  console.log(soundList);
-  const [currentTrack, setCurrentTrack] = useState(0);
+  // useEffect(() => {
+  //   currentMusic.item?.ayahs.map((el, idx) => {
+  //     setSoundList((prev) => [...prev, el.audio]);
+  //   });
+  // }, []);
+  // console.log(soundList);
+  // const [currentTrack, setCurrentTrack] = useState(0);
 
-  useEffect(() => {
-    // Set the audio source to the current track URL
-    if (audioRef.current) {
-      audioRef.current.src = soundList[currentTrack];
-      audioRef.current.play();
-    }
-  }, [currentTrack]);
+  // useEffect(() => {
+  //   // Set the audio source to the current track URL
+  //   if (audioRef.current) {
+  //     audioRef.current.src = soundList[currentTrack];
+  //     audioRef.current.play();
+  //   }
+  // }, [currentTrack]);
 
-  const handleNextTrack = () => {
-    setCurrentTrack((prevTrack) =>
-      prevTrack < soundList.length - 1 ? prevTrack + 1 : 0
-    );
-  };
+  // const handleNextTrack = () => {
+  //   setCurrentTrack((prevTrack) =>
+  //     prevTrack < soundList.length - 1 ? prevTrack + 1 : 0
+  //   );
+  // };
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.addEventListener("ended", handleNextTrack);
-    }
-    return () => {
-      if (audio) {
-        audio.removeEventListener("ended", handleNextTrack);
-      }
-    };
-  }, [audioRef]);
+  // useEffect(() => {
+  //   const audio = audioRef.current;
+  //   if (audio) {
+  //     audio.addEventListener("ended", handleNextTrack);
+  //   }
+  //   return () => {
+  //     if (audio) {
+  //       audio.removeEventListener("ended", handleNextTrack);
+  //     }
+  //   };
+  // }, [audioRef]);
 
   // useEffect(() => {
   //   console.log(currentMusic);

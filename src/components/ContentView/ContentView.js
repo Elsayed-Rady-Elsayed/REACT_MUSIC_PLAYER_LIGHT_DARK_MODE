@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import "./ContentView.css";
-import SongsList from "../../listOfSongs";
-import { useRecoilState } from "recoil";
-import { idxAtom } from "../recoil/idxAtom";
-import { ClickedAtom } from "../recoil/clcikedAtom";
+import { useSelector } from "react-redux";
 const ContentView = () => {
-  const [clonedList, setClonedList] = useState(SongsList);
-  const [recIdx, setRecIdx] = useRecoilState(idxAtom);
-  const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
-  const surah = currentMusic.item?.ayahs.map((el, idx) => {
+  const surah = useSelector((state) => state.quran.currentSurah);
+  console.log(surah);
+  const surahText = surah.ayahs?.map((el, idx) => {
     return (
       <span>
         {el.text}({idx + 1})
@@ -18,7 +14,7 @@ const ContentView = () => {
   return (
     <div className="textConent">
       <h1>بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1>
-      <div>{surah}</div>
+      <div>{surahText}</div>
     </div>
   );
 };

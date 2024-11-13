@@ -7,12 +7,13 @@ import { ClickedAtom } from "../recoil/clcikedAtom";
 import { useTranslation } from "react-i18next";
 import { SurahAtom } from "../recoil/surah";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllQuran, setCurrentSurah } from "../../store/getQuran";
 export const MusicList = () => {
-  const [recIdx, setRecIdx] = useRecoilState(idxAtom);
-  const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
+  const quran = useSelector((state) => state.quran);
   const { t, i18n } = useTranslation();
   const [changeLang, setChangeLang] = useState();
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (i18n.language == "en") {
       setChangeLang(false);
@@ -20,75 +21,63 @@ export const MusicList = () => {
       setChangeLang(true);
     }
   }, [i18n.language]);
-  let showList = SongsList.map((el, idx) => {
-    return (
-      <li
-        onClick={() => {
-          setRecIdx(idx);
-          setCurrentMusic({
-            audio: el.audio,
-            pic: el.pic,
-            text: el.text,
-            texten: el.texten,
-            active: true,
-          });
-        }}
-        key={idx}
-        data-id={idx}
-        className={`${changeLang ? "ar" : ""} item ${
-          idx === recIdx ? "active" : "notactive"
-        }`}
-      >
-        <img src={el.pic} alt="" className="img" />
-        <div>
-          <p className="sName">
-            {t("textQuran", { returnObjects: true })[idx]}
-          </p>
+  // let showList = SongsList.map((el, idx) => {
+  //   return (
+  //     <li
+  //       onClick={() => {
+  //         setRecIdx(idx);
+  //         setCurrentMusic({
+  //           audio: el.audio,
+  //           pic: el.pic,
+  //           text: el.text,
+  //           texten: el.texten,
+  //           active: true,
+  //         });
+  //       }}
+  //       key={idx}
+  //       data-id={idx}
+  //       className={`${changeLang ? "ar" : ""} item ${
+  //         idx === recIdx ? "active" : "notactive"
+  //       }`}
+  //     >
+  //       <img src={el.pic} alt="" className="img" />
+  //       <div>
+  //         <p className="sName">
+  //           {t("textQuran", { returnObjects: true })[idx]}
+  //         </p>
 
-          <p className="artist">{t("qara")}</p>
-        </div>
-      </li>
-    );
-  });
+  //         <p className="artist">{t("qara")}</p>
+  //       </div>
+  //     </li>
+  //   );
+  // });
   const hideList = () => {
     document.getElementById("parent").classList.remove("show");
   };
 
-  const [surahList, setSurahList] = useState([]);
-  const [edition, setEdition] = useState({});
-  const fetchData = async () => {
-    await axios({
-      method: "get",
-      url: "https://api.alquran.cloud/v1/quran/ar.alafasy",
-    })
-      .then((res) => {
-        console.log(res.data);
-        setEdition(res.data.data.edition);
-        setSurahList(res.data.data.surahs);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
   useEffect(() => {
-    fetchData();
+    dispatch(fetchAllQuran());
   }, []);
+  console.log(quran);
 
-  const listOfSurah = surahList?.map((el, idx) => (
+  const listOfSurah = quran.quran.data?.surahs?.map((el, idx) => (
     <li
       onClick={() => {
-        setRecIdx(idx);
-        setCurrentMusic({
-          item: el,
-          edition: edition,
-        });
+        dispatch(
+          setCurrentSurah({
+            current: {
+              ...el,
+              QuraName: quran.quran.data.edition.name,
+              QuraNameEng: quran.quran.data.edition.englishName,
+            },
+          })
+        );
       }}
       key={idx}
       data-id={idx}
-      className={`${changeLang ? "ar" : ""} item ${
-        idx === recIdx ? "active" : "notactive"
-      }`}
+      // className={`${changeLang ? "ar" : ""} item ${
+      //   idx === recIdx ? "active" : "notactive"
+      // }`}
     >
       <img src={el.pic} alt="" className="img" />
       <div>
@@ -97,7 +86,9 @@ export const MusicList = () => {
         </p>
 
         <p className="artist">
-          {i18n.language === "en" ? edition.englishName : edition.name}
+          {i18n.language === "en"
+            ? quran.quran.data.edition.englishName
+            : quran.quran.data.edition.name}
         </p>
       </div>
     </li>

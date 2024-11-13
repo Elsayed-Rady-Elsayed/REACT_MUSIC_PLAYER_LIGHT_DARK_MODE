@@ -8,30 +8,14 @@ import { idxAtom } from "./components/recoil/idxAtom";
 import { SurahAtom } from "./components/recoil/surah";
 import { useEffect } from "react";
 import { ClickedAtom } from "./components/recoil/clcikedAtom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllQuran } from "./store/getQuran";
 
 function App() {
-  const [recIdx, setRecIdx] = useRecoilState(SurahAtom);
-  const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
-
-  const fetchData = async () => {
-    await axios({
-      method: "get",
-      url: "https://api.alquran.cloud/v1/quran/ar.alafasy",
-    })
-      .then((res) => {
-        console.log(res.data);
-        setCurrentMusic({
-          item: res.data.data.surahs[0],
-          edition: res.data.data.edition,
-        });
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
+  const quran = useSelector((state) => state.quran);
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchData();
+    dispatch(fetchAllQuran());
   }, []);
   return (
     <div className="App">

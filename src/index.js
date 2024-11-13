@@ -7,6 +7,8 @@ import { RecoilRoot } from "recoil";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
 import SongsList from "./listOfSongs";
+import { Provider } from "react-redux";
+import store from "./store/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 let s = SongsList.map((el) => el.texten);
 i18n.init({
@@ -35,7 +37,9 @@ root.render(
   <React.StrictMode>
     <RecoilRoot>
       <I18nextProvider i18n={i18n}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </I18nextProvider>
     </RecoilRoot>
   </React.StrictMode>
