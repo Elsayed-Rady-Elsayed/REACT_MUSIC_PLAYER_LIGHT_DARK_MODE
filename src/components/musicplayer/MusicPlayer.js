@@ -124,62 +124,67 @@ export const MusicPlayer = () => {
   return (
     <div className="audioCard">
       <div className="imgRotate">
-        <div className="smImg">
+        {/* <div className="smImg">
           <img
             src={clonedList.length > 1 ? clonedList[idx].pic : clonedList.pic}
             alt="Album Art"
           />
-        </div>
+        </div> */}
         <img
           src={clonedList.length > 1 ? clonedList[idx].pic : clonedList.pic}
           alt="Album Art"
         />
+        <div className="name">
+          {clonedList.length > 1
+            ? i18n.language == "ar"
+              ? clonedList[idx].text
+              : clonedList[idx].texten
+            : i18n.language == "ar"
+            ? clonedList.text
+            : clonedList.texten}
+          <p>{t("qara")}</p>
+        </div>
       </div>
       <audio
         ref={audioRef}
         src={clonedList.length > 1 ? clonedList[idx].audio : clonedList.audio}
       />
-      <div className="name">
-        {clonedList.length > 1
-          ? i18n.language == "ar"
-            ? clonedList[idx].text
-            : clonedList[idx].texten
-          : i18n.language == "ar"
-          ? clonedList.text
-          : clonedList.texten}
-      </div>
+
       <div className="controls">
-        <ion-icon
-          name="play-back-circle-outline"
-          onClick={handlePrevious}
-        ></ion-icon>
-        <button onClick={isPlaying ? pauseAudio : playAudio}>
-          {isPlaying && !audioRef.current.ended ? (
-            <ion-icon name="pause-circle-outline"></ion-icon>
-          ) : (
-            <ion-icon name="play-circle-outline"></ion-icon>
-          )}
-        </button>
-        <ion-icon
-          name="play-forward-circle-outline"
-          onClick={handleNext}
-        ></ion-icon>
-      </div>
-      <div className="progressData">
-        <p ref={durationRef}>00:00</p>
-        <div className="prog">
-          <input
-            id="progress"
-            type="range"
-            min="0"
-            max="100"
-            step="1"
-            value={progressWidth}
-            onChange={handleProgressChange}
-          />
+        <div className="control">
+          <ion-icon
+            name="play-back-circle-outline"
+            onClick={handlePrevious}
+          ></ion-icon>
+          <button onClick={isPlaying ? pauseAudio : playAudio}>
+            {isPlaying && !audioRef.current.ended ? (
+              <ion-icon name="pause-circle-outline"></ion-icon>
+            ) : (
+              <ion-icon name="play-circle-outline"></ion-icon>
+            )}
+          </button>
+          <ion-icon
+            name="play-forward-circle-outline"
+            onClick={handleNext}
+          ></ion-icon>
         </div>
-        <p ref={runningDurationRef}>00:00</p>
+        <div className="progressData">
+          <p ref={durationRef}>00:00</p>
+          <div className="prog">
+            <input
+              id="progress"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value={progressWidth}
+              onChange={handleProgressChange}
+            />
+          </div>
+          <p ref={runningDurationRef}>00:00</p>
+        </div>
       </div>
+
       <input
         className="volumeRange"
         id="volumeRange"

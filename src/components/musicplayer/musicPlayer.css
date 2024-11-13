@@ -1,26 +1,26 @@
+/* 
 .audioCard {
-  width: 250px;
-  height: 330px;
-  border-radius: 30px;
+  width: 100%;
+  height: fit-content;
+  border-radius: 0px;
   background: var(--card-color);
   box-shadow: 15px 15px 30px var(--shadow-color1),
     -15px -15px 30px var(--shadow-color2);
-  margin: 0 20px;
-  padding: 2px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding: 2rem 15px 15px 15px;
   position: relative;
-  margin-top: 5rem;
   overflow: hidden;
   user-select: none;
+  position: fixed;
+  bottom: 0;
 }
 #volumeRange {
   position: absolute;
-  right: -3rem;
+  left: 5rem;
   top: 5rem;
-  transform: rotate(270deg);
+  transform: rotate(0deg);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -81,14 +81,14 @@
 .imgRotate {
   box-shadow: 15px 15px 30px var(--shadow-color1),
     -15px -15px 30px var(--shadow-color2);
-  width: 150px;
-  height: 150px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 .imgRotate img {
-  width: 150px;
-  height: 150px;
+  width: 50px;
+  height: 50px;
   border: 3px solid var(--body-color);
   border-radius: 50%;
   padding: 5px;
@@ -122,11 +122,10 @@
 .name {
   font-size: 0.8rem;
   font-weight: bold;
-  width: 100%;
+  width: 600px;
   text-align: center;
   color: var(--body-color);
   margin: 0 0 10px 0;
-  animation-name: slider;
   animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -155,7 +154,6 @@
     width: 90%;
     height: 70vh;
     margin-top: 1rem;
-    /* margin: 0 20px; */
     padding: 2px;
     display: flex;
     flex-direction: column;
@@ -219,7 +217,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    /* transform: translate(-50%, -50%); */
     width: 200px;
     height: 200px;
     background-color: red;
@@ -240,4 +237,113 @@
     position: absolute;
     bottom: 6.5rem;
   }
+}
+*/
+.audioCard {
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--card-color);
+  display: flex;
+  justify-content: space-between;
+}
+.audioCard .imgRotate {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.imgRotate .name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  color: var(--body-color);
+}
+.audioCard .imgRotate img {
+  height: 80px;
+  max-width: 100px;
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--body-color);
+}
+.controls .control {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.controls .control button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--body-color);
+}
+.audioCard .controls button ion-icon {
+  font-size: 3rem;
+  color: var(--body-color);
+  cursor: pointer;
+}
+.audioCard .controls ion-icon {
+  font-size: 2rem;
+}
+.controls .progressData {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--body-color);
+}
+#progress {
+  appearance: none;
+  background: transparent;
+  margin: 10px 0;
+  width: 200px;
+}
+#progress::-webkit-slider-runnable-track {
+  background-color: #eee;
+  height: 2px;
+}
+
+#progress::-moz-range-track {
+  background: black;
+  height: 0.5rem;
+}
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 5px;
+  width: 5px;
+  background: var(--body-color);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -2px;
+}
+#volumeRange {
+  margin-right: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+#volumeRange::-webkit-slider-runnable-track {
+  background-color: var(--body-color);
+  height: 2px;
+}
+
+#volumeRange::-moz-range-track {
+  background: var(--body-color);
+  height: 0.5rem;
+}
+#volumeRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  background: var(--body-color);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
 }

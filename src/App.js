@@ -1,3 +1,4 @@
+import ContentView from "./components/ContentView/ContentView";
 import { Header } from "./components/header/Header";
 import { MusicList } from "./components/MusicList/MusicList";
 import { MusicPlayer } from "./components/musicplayer/MusicPlayer";
@@ -9,6 +10,7 @@ function App() {
       <div className="content">
         <MusicPlayer />
         <MusicList />
+        <ContentView />
       </div>
     </div>
   );

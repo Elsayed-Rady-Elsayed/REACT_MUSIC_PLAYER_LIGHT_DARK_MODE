@@ -18,7 +18,7 @@ i18n.init({
         headerTitle: "Quran",
         langs: "language",
         textQuran: SongsList.map((el) => el.texten),
-        qara: "Mohamed Sadek Elmenshawy",
+        qara: "Elmenshawy",
       },
     },
     ar: {
@@ -26,7 +26,7 @@ i18n.init({
         headerTitle: "القران الكريم",
         langs: "اللغات",
         textQuran: SongsList.map((el) => el.text),
-        qara: "محمد صديق المنشاوي",
+        qara: "المنشاوي",
       },
     },
   },
