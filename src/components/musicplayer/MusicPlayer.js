@@ -22,7 +22,7 @@ export const MusicPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const { t, i18n } = useTranslation();
-  console.log(currentMusic);
+  console.log(currentMusic.edition);
 
   // useEffect(() => {
   //   console.log(currentMusic);
@@ -130,24 +130,30 @@ export const MusicPlayer = () => {
     <div className="audioCard">
       <div className="imgRotate">
         <img
-          src={clonedList.length > 1 ? clonedList[idx].pic : clonedList.pic}
+          src={
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQElDvjUIbc_yHgaoNLAXGQMZhWhCUvvb3IgA&s"
+          }
           alt="Album Art"
         />
         <div className="name">
           {clonedList.length
             ? i18n.language == "ar"
-              ? currentMusic.edition.name
-              : currentMusic.edition.englishName
+              ? currentMusic.item?.name
+              : currentMusic.item?.englishName
             : i18n.language == "ar"
-            ? currentMusic.edition.name
-            : currentMusic.edition.englishName}
-          <p>{t("qara")}</p>
+            ? currentMusic.item?.name
+            : currentMusic.item?.englishName}
+          <p>
+            {i18n.language == "ar"
+              ? currentMusic.edition?.name
+              : currentMusic.edition?.englishName}
+          </p>
         </div>
       </div>
-      <audio
+      {/* <audio
         ref={audioRef}
         src={clonedList.length > 1 ? clonedList[idx].audio : clonedList.audio}
-      />
+      /> */}
 
       {/* <div className="controls">
         <div className="control">
