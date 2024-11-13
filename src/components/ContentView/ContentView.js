@@ -18,7 +18,6 @@ const ContentView = () => {
   return (
     <div className="textConent">
       <h1>بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1>
-      {/* {clonedList[recIdx].quran} */}
       <div>{surah}</div>
     </div>
   );
