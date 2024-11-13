@@ -26,37 +26,38 @@ export const MusicPlayer = () => {
   console.log(surah);
   useEffect(() => {
     surah.ayahs?.map((el, idx) => {
+      console.log(el);
+
       setSoundList((prev) => [...prev, el.audio]);
     });
-  }, []);
-  // console.log(soundList);
+  }, [surah.currentSurah]);
   const [currentTrack, setCurrentTrack] = useState(0);
 
   useEffect(() => {
     // Set the audio source to the current track URL
-    if (audioRef.current) {
-      audioRef.current.src = LinksToSound[currentTrack];
-      audioRef.current.play();
-    }
+    console.log("fdsa");
+
+    audioRef.current.src = LinksToSound[currentTrack];
+    audioRef.current.play();
   }, [currentTrack]);
 
-  // const handleNextTrack = () => {
-  //   setCurrentTrack((prevTrack) =>
-  //     prevTrack < soundList.length - 1 ? prevTrack + 1 : 0
-  //   );
-  // };
+  const handleNextTrack = () => {
+    setCurrentTrack((prevTrack) =>
+      prevTrack < LinksToSound.length - 1 ? prevTrack + 1 : 0
+    );
+  };
 
-  // useEffect(() => {
-  //   const audio = audioRef.current;
-  //   if (audio) {
-  //     audio.addEventListener("ended", handleNextTrack);
-  //   }
-  //   return () => {
-  //     if (audio) {
-  //       audio.removeEventListener("ended", handleNextTrack);
-  //     }
-  //   };
-  // }, [audioRef]);
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.addEventListener("ended", handleNextTrack);
+    }
+    return () => {
+      if (audio) {
+        audio.removeEventListener("ended", handleNextTrack);
+      }
+    };
+  }, [audioRef]);
 
   // useEffect(() => {
   //   console.log(currentMusic);
