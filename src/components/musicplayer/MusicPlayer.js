@@ -22,7 +22,14 @@ export const MusicPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const { t, i18n } = useTranslation();
-  console.log(currentMusic.edition);
+  console.log(currentMusic);
+  const [soundList, setSoundList] = useState([]);
+  useEffect(() => {
+    currentMusic.item.ayahs?.map((el, idx) => {
+      setSoundList((prev) => [...prev, el.audio]);
+    });
+  }, []);
+  console.log(soundList);
 
   // useEffect(() => {
   //   console.log(currentMusic);
