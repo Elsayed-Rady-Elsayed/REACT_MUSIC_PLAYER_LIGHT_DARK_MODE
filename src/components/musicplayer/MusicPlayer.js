@@ -22,13 +22,13 @@ export const MusicPlayer = () => {
   const [duration, setDuration] = useState(0);
   const { t, i18n } = useTranslation();
   const surah = useSelector((state) => state.quran.currentSurah);
+  const [LinksToSound, setSoundList] = useState([]);
   console.log(surah);
-  // console.log(currentMusic);
-  // useEffect(() => {
-  //   currentMusic.item?.ayahs.map((el, idx) => {
-  //     setSoundList((prev) => [...prev, el.audio]);
-  //   });
-  // }, []);
+  useEffect(() => {
+    surah.ayahs?.map((el, idx) => {
+      setSoundList((prev) => [...prev, el.audio]);
+    });
+  }, []);
   // console.log(soundList);
   // const [currentTrack, setCurrentTrack] = useState(0);
 
@@ -181,22 +181,17 @@ export const MusicPlayer = () => {
         </div>
       </div>
       <audio ref={audioRef} />
-      <div>
-        {/* <button onClick={() => audioRef.current.play()}>Play</button>
-        <button onClick={() => audioRef.current.pause()}>Pause</button>
-        <button onClick={handleNextTrack}>Next Track</button> */}
-      </div>
 
-      {/* <div className="controls">
+      <div className="controls">
         <div className="control">
           <ion-icon
             name="play-back-circle-outline"
             onClick={() => audioRef.current.play()}
           ></ion-icon>
           <button
-            onClick={
-              isPlaying ? audioRef.current.pause() : audioRef.current.play()
-            }
+          // onClick={
+          //   isPlaying ? audioRef.current.pause() : audioRef.current.play()
+          // }
           >
             {isPlaying && !audioRef.current.ended ? (
               <ion-icon name="pause-circle-outline"></ion-icon>
@@ -224,7 +219,7 @@ export const MusicPlayer = () => {
           </div>
           <p ref={runningDurationRef}>00:00</p>
         </div>
-      </div> */}
+      </div>
 
       {/* <input
         className="volumeRange"
