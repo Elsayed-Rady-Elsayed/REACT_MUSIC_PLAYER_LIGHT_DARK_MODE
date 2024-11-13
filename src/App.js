@@ -6,19 +6,11 @@ import { MusicPlayer } from "./components/musicplayer/MusicPlayer";
 import { useRecoilState } from "recoil";
 import { idxAtom } from "./components/recoil/idxAtom";
 import { SurahAtom } from "./components/recoil/surah";
+import { useEffect } from "react";
 
 function App() {
   const [recIdx, setRecIdx] = useRecoilState(SurahAtom);
 
-  axios({
-    method: "get",
-    url: "https://api.alquran.cloud/v1/quran/ar.alafasy",
-    responseType: "stream",
-  }).then((res) => {
-    const data = JSON.parse(res.data);
-    // console.log(data.data.surahs);
-    setRecIdx(data.data.surahs);
-  });
   return (
     <div className="App">
       <Header />
