@@ -6,6 +6,7 @@ import { idxAtom } from "../recoil/idxAtom";
 import { ClickedAtom } from "../recoil/clcikedAtom";
 import { useTranslation } from "react-i18next";
 import { SurahAtom } from "../recoil/surah";
+import { useSelector } from "react-redux";
 
 export const MusicPlayer = () => {
   const audioRef = useRef(null);
@@ -16,14 +17,13 @@ export const MusicPlayer = () => {
   const [volume, setVolume] = useState(1);
   const [progressWidth, setProgressWidth] = useState(0);
   const [idx, setIdx] = useState(0);
-  const [recIdx, setRecIdx] = useRecoilState(idxAtom);
-  const [currentMusic, setCurrentMusic] = useRecoilState(ClickedAtom);
   const [clonedList, setClonedList] = useState(SongsList);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const { t, i18n } = useTranslation();
+  const surah = useSelector((state) => state.quran.currentSurah);
+  console.log(surah);
   // console.log(currentMusic);
-  const [soundList, setSoundList] = useState([]);
   // useEffect(() => {
   //   currentMusic.item?.ayahs.map((el, idx) => {
   //     setSoundList((prev) => [...prev, el.audio]);
@@ -172,16 +172,12 @@ export const MusicPlayer = () => {
         <div className="name">
           {clonedList.length
             ? i18n.language == "ar"
-              ? currentMusic.item?.name
-              : currentMusic.item?.englishName
+              ? surah?.name
+              : surah?.englishName
             : i18n.language == "ar"
-            ? currentMusic.item?.name
-            : currentMusic.item?.englishName}
-          <p>
-            {i18n.language == "ar"
-              ? currentMusic.edition?.name
-              : currentMusic.edition?.englishName}
-          </p>
+            ? surah?.name
+            : surah?.englishName}
+          <p>{i18n.language == "ar" ? surah?.QuraName : surah?.QuraNameEng}</p>
         </div>
       </div>
       <audio ref={audioRef} />
