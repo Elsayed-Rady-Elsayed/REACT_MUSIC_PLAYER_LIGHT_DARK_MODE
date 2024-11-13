@@ -39,15 +39,18 @@
   margin-bottom: 10px;
   color: var(--body-color);
   text-transform: capitalize;
-  height: 1.3rem;
+  /* height: 1.1rem; */
   /* background-color: red; */
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 22px;
 }
 .parent ul li div .artist {
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--body-color);
-  font-size: small;
+  font-size: 16px;
+  opacity: 0.5;
+  margin-top: -10px;
 }
 .parent ul li:hover {
   box-shadow: 15px 15px 30px var(--shadow-color1),

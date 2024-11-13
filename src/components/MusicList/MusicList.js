@@ -55,6 +55,7 @@ export const MusicList = () => {
   };
 
   const [surahList, setSurahList] = useState([]);
+  const [edition, setEdition] = useState({});
   const fetchData = async () => {
     await axios({
       method: "get",
@@ -62,6 +63,7 @@ export const MusicList = () => {
     })
       .then((res) => {
         console.log(res.data);
+        setEdition(res.data.data.edition);
         setSurahList(res.data.data.surahs);
       })
       .catch((e) => {
@@ -97,7 +99,9 @@ export const MusicList = () => {
           {i18n.language === "en" ? el.englishName : el.name}
         </p>
 
-        <p className="artist">{t("qara")}</p>
+        <p className="artist">
+          {i18n.language === "en" ? edition.identifier : edition.name}
+        </p>
       </div>
     </li>
   ));
