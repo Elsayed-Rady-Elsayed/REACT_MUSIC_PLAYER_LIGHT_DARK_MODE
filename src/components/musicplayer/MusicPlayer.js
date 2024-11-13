@@ -30,15 +30,15 @@ export const MusicPlayer = () => {
     });
   }, []);
   // console.log(soundList);
-  // const [currentTrack, setCurrentTrack] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState(0);
 
-  // useEffect(() => {
-  //   // Set the audio source to the current track URL
-  //   if (audioRef.current) {
-  //     audioRef.current.src = soundList[currentTrack];
-  //     audioRef.current.play();
-  //   }
-  // }, [currentTrack]);
+  useEffect(() => {
+    // Set the audio source to the current track URL
+    if (audioRef.current) {
+      audioRef.current.src = LinksToSound[currentTrack];
+      audioRef.current.play();
+    }
+  }, [currentTrack]);
 
   // const handleNextTrack = () => {
   //   setCurrentTrack((prevTrack) =>
@@ -159,6 +159,7 @@ export const MusicPlayer = () => {
   //   setCurrentMusic({});
   //   setIsPlaying(false);
   // };
+  console.log(LinksToSound);
 
   return (
     <div className="audioCard">
@@ -189,9 +190,10 @@ export const MusicPlayer = () => {
             onClick={() => audioRef.current.play()}
           ></ion-icon>
           <button
-          // onClick={
-          //   isPlaying ? audioRef.current.pause() : audioRef.current.play()
-          // }
+            // onClick={
+            //   isPlaying ? audioRef.current.pause() : audioRef.current.play()
+            // }
+            onClick={() => audioRef.current.play()}
           >
             {isPlaying && !audioRef.current.ended ? (
               <ion-icon name="pause-circle-outline"></ion-icon>
