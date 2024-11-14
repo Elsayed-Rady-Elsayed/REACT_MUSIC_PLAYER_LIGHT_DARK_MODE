@@ -38,7 +38,7 @@ export const MusicPlayer = () => {
         audioRef.current.pause();
       }
     }
-  }, [currentAyahIndex, isPlaying]);
+  }, [currentAyahIndex, isPlaying, volume]);
 
   console.log(surah);
 
@@ -66,14 +66,20 @@ export const MusicPlayer = () => {
 
       <div className="controls">
         <div className="control">
-          <ion-icon
-            name="play-back-circle-outline"
-            onClick={() => audioRef.current.play()}
-          ></ion-icon>
-          <button onClick={togglePlayPause}>
+          <button
+            onClick={() => {
+              audioRef.current.play();
+            }}
+          >
             <ion-icon name="play-circle-outline"></ion-icon>
           </button>
-          <ion-icon name="play-forward-circle-outline"></ion-icon>
+          <button
+            onClick={() => {
+              audioRef.current.pause();
+            }}
+          >
+            <ion-icon name="pause-circle-outline"></ion-icon>
+          </button>
         </div>
       </div>
 
