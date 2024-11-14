@@ -44,6 +44,7 @@ export const MusicList = () => {
       }}
       key={idx}
       data-id={idx}
+      className={`${i18n.language === "ar" ? "arl" : "enl"}`}
       // className={`${changeLang ? "ar" : ""} item ${
       //   idx === recIdx ? "active" : "notactive"
       // }`}

@@ -248,6 +248,13 @@
   background: var(--card-color);
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+}
+.ara {
+  flex-direction: row-reverse;
+}
+.ena {
+  flex-direction: row;
 }
 .audioCard .imgRotate {
   display: flex;
@@ -260,6 +267,16 @@
   justify-content: space-evenly;
   height: 100%;
   color: var(--body-color);
+  .qaraName {
+    font-size: 13px;
+    opacity: 0.8;
+  }
+}
+.arn {
+  flex-direction: row-reverse;
+}
+.enn {
+  flex-direction: row;
 }
 .audioCard .imgRotate img {
   height: 80px;

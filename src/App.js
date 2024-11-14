@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { ClickedAtom } from "./components/recoil/clcikedAtom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllQuran } from "./store/getQuran";
+import { useTranslation } from "react-i18next";
 
 function App() {
   const quran = useSelector((state) => state.quran);
@@ -17,10 +18,11 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllQuran());
   }, []);
+  const { i18n } = useTranslation();
   return (
     <div className="App">
       <Header />
-      <div className="content">
+      <div className={`content ${i18n.language === "en" ? "enc" : "arc"}`}>
         <MusicPlayer />
         <MusicList />
         <ContentView />

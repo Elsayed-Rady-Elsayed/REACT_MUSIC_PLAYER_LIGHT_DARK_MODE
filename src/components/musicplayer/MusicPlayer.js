@@ -20,7 +20,7 @@ export const MusicPlayer = () => {
   // const [clonedList, setClonedList] = useState(SongsList);
   // const [currentTime, setCurrentTime] = useState(0);
   // const [duration, setDuration] = useState(0);
-  // const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const surah = useSelector((state) => state.quran.currentSurah);
   // const [LinksToSound, setSoundList] = useState([]);
   // console.log(surah);
@@ -192,36 +192,20 @@ export const MusicPlayer = () => {
   console.log(surah);
 
   return (
-    // <div>
-    //   <h1>
-    //     {surah.name} ({surah.englishName})
-    //   </h1>
-    //   <p>{surah.englishNameTranslation}</p>
-    //   <p>Revelation Type: {surah.revelationType}</p>
-    //   <p>
-    //     Reciter: {surah.QuraName} ({surah.QuraNameEng})
-    //   </p>
-
-    //   <h2>Current Ayah:</h2>
-    //   <p>{ayahs[currentAyahIndex].text}</p>
-
-    //   <button onClick={togglePlayPause}>{isPlaying ? "Pause" : "Play"}</button>
-
-    //   <audio
-    //     ref={audioRef}
-    //     src={ayahs[currentAyahIndex].audio}
-    //     onEnded={handleAudioEnd}
-    //   />
-    // </div>
-    <div className="audioCard">
-      <div className="imgRotate">
+    <div className={`audioCard ${i18n.language === "en" ? "ena" : "ara"}`}>
+      <div className={`imgRotate ${i18n.language === "en" ? "enn" : "arn"}`}>
         <img
           src={
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQElDvjUIbc_yHgaoNLAXGQMZhWhCUvvb3IgA&s"
           }
           alt="Album Art"
         />
-        <div className="name"></div>
+        <div className="name">
+          {surah.name}-{surah.englishName}
+          <p className="qaraName">
+            {surah.QuraName} ({surah.QuraNameEng})
+          </p>
+        </div>
       </div>
       <audio
         onEnded={handleAudioEnd}
