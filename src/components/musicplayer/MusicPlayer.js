@@ -12,6 +12,10 @@ export const MusicPlayer = () => {
 
   const ayahs = surah.ayahs;
 
+  useEffect(() => {
+    setCurrentAyahIndex(0);
+  }, [surah]);
+
   const handleAudioEnd = () => {
     if (currentAyahIndex < ayahs.length - 1) {
       setCurrentAyahIndex(currentAyahIndex + 1);
