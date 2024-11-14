@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./musicList.css";
-import SongsList from "../../listOfSongs";
-import { idxAtom } from "../recoil/idxAtom";
-import { useRecoilState } from "recoil";
-import { ClickedAtom } from "../recoil/clcikedAtom";
 import { useTranslation } from "react-i18next";
-import { SurahAtom } from "../recoil/surah";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllQuran, setCurrentSurah } from "../../store/getQuran";
 export const MusicList = () => {
