@@ -9,7 +9,7 @@ export const MusicPlayer = () => {
   const [currentAyahIndex, setCurrentAyahIndex] = useState(0);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
+  const [volume, setVolume] = useState(0);
   const ayahs = surah.ayahs;
 
   useEffect(() => {
@@ -30,6 +30,8 @@ export const MusicPlayer = () => {
 
   useEffect(() => {
     if (audioRef.current) {
+      audioRef.current.volume = volume;
+
       if (isPlaying) {
         audioRef.current.play();
       } else {
@@ -73,11 +75,6 @@ export const MusicPlayer = () => {
           </button>
           <ion-icon name="play-forward-circle-outline"></ion-icon>
         </div>
-        <div className="progressData">
-          <div className="prog">
-            <input id="progress" type="range" min="0" max="100" step="1" />
-          </div>
-        </div>
       </div>
 
       <input
@@ -87,6 +84,10 @@ export const MusicPlayer = () => {
         min="0"
         max="1"
         step="0.1"
+        value={volume}
+        onChange={(e) => {
+          setVolume(e.target.value);
+        }}
       />
     </div>
   );
