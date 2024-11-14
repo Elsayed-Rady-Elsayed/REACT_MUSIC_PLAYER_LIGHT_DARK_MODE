@@ -25,17 +25,25 @@
   border-radius: 30px;
   padding: 2px;
 }
+.arl {
+  justify-content: flex-end;
+}
+.arl .artist {
+  text-align: end;
+  margin: 0;
+  padding: 0;
+}
+.enl {
+  justify-content: flex-start;
+}
 .parent ul li img {
   max-width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.ar {
-  flex-direction: row-reverse !important;
-  text-align: end;
-}
+
 .parent ul li div .sName {
-  margin-right: 11px;
+  margin-right: 5px;
   margin-bottom: 10px;
   color: var(--body-color);
   text-transform: capitalize;
@@ -46,7 +54,7 @@
   font-size: 22px;
 }
 .parent ul li div .artist {
-  margin-right: 11px;
+  margin-right: 5px;
   text-transform: capitalize;
   color: var(--body-color);
   font-size: 16px;
