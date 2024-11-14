@@ -28,7 +28,6 @@ export const MusicList = () => {
   useEffect(() => {
     dispatch(fetchAllQuran());
   }, []);
-  console.log(quran);
 
   const listOfSurah = quran.quran.data?.surahs?.map((el, idx) => (
     <li

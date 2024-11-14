@@ -9,55 +9,55 @@ import { SurahAtom } from "../recoil/surah";
 import { useSelector } from "react-redux";
 
 export const MusicPlayer = () => {
-  const audioRef = useRef(null);
-  const durationRef = useRef(null);
-  const runningDurationRef = useRef(null);
-  const intervalIdRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(1);
-  const [progressWidth, setProgressWidth] = useState(0);
-  const [idx, setIdx] = useState(0);
-  const [clonedList, setClonedList] = useState(SongsList);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const { t, i18n } = useTranslation();
+  // const audioRef = useRef(null);
+  // const durationRef = useRef(null);
+  // const runningDurationRef = useRef(null);
+  // const intervalIdRef = useRef(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const [volume, setVolume] = useState(1);
+  // const [progressWidth, setProgressWidth] = useState(0);
+  // const [idx, setIdx] = useState(0);
+  // const [clonedList, setClonedList] = useState(SongsList);
+  // const [currentTime, setCurrentTime] = useState(0);
+  // const [duration, setDuration] = useState(0);
+  // const { t, i18n } = useTranslation();
   const surah = useSelector((state) => state.quran.currentSurah);
-  const [LinksToSound, setSoundList] = useState([]);
-  console.log(surah);
-  useEffect(() => {
-    surah.ayahs?.map((el, idx) => {
-      console.log(el);
+  // const [LinksToSound, setSoundList] = useState([]);
+  // console.log(surah);
+  // useEffect(() => {
+  //   surah.ayahs?.map((el, idx) => {
+  //     console.log(el);
 
-      setSoundList((prev) => [...prev, el.audio]);
-    });
-  }, [surah.currentSurah]);
-  const [currentTrack, setCurrentTrack] = useState(0);
+  //     setSoundList((prev) => [...prev, el.audio]);
+  //   });
+  // }, [surah.currentSurah]);
+  // const [currentTrack, setCurrentTrack] = useState(0);
 
-  useEffect(() => {
-    // Set the audio source to the current track URL
-    console.log("fdsa");
+  // useEffect(() => {
+  //   // Set the audio source to the current track URL
+  //   console.log("fdsa");
 
-    audioRef.current.src = LinksToSound[currentTrack];
-    audioRef.current.play();
-  }, [currentTrack]);
+  //   audioRef.current.src = LinksToSound[currentTrack];
+  //   audioRef.current.play();
+  // }, [currentTrack]);
 
-  const handleNextTrack = () => {
-    setCurrentTrack((prevTrack) =>
-      prevTrack < LinksToSound.length - 1 ? prevTrack + 1 : 0
-    );
-  };
+  // const handleNextTrack = () => {
+  //   setCurrentTrack((prevTrack) =>
+  //     prevTrack < LinksToSound.length - 1 ? prevTrack + 1 : 0
+  //   );
+  // };
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.addEventListener("ended", handleNextTrack);
-    }
-    return () => {
-      if (audio) {
-        audio.removeEventListener("ended", handleNextTrack);
-      }
-    };
-  }, [audioRef]);
+  // useEffect(() => {
+  //   const audio = audioRef.current;
+  //   if (audio) {
+  //     audio.addEventListener("ended", handleNextTrack);
+  //   }
+  //   return () => {
+  //     if (audio) {
+  //       audio.removeEventListener("ended", handleNextTrack);
+  //     }
+  //   };
+  // }, [audioRef]);
 
   // useEffect(() => {
   //   console.log(currentMusic);
@@ -160,9 +160,59 @@ export const MusicPlayer = () => {
   //   setCurrentMusic({});
   //   setIsPlaying(false);
   // };
-  console.log(LinksToSound);
+  // console.log(LinksToSound);
+  const [currentAyahIndex, setCurrentAyahIndex] = useState(0);
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const ayahs = surah.ayahs;
+
+  const handleAudioEnd = () => {
+    if (currentAyahIndex < ayahs.length - 1) {
+      setCurrentAyahIndex(currentAyahIndex + 1);
+    } else {
+      setIsPlaying(false); // Stop playing at the end of the surah
+    }
+  };
+
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [currentAyahIndex, isPlaying]);
+
+  console.log(surah);
 
   return (
+    // <div>
+    //   <h1>
+    //     {surah.name} ({surah.englishName})
+    //   </h1>
+    //   <p>{surah.englishNameTranslation}</p>
+    //   <p>Revelation Type: {surah.revelationType}</p>
+    //   <p>
+    //     Reciter: {surah.QuraName} ({surah.QuraNameEng})
+    //   </p>
+
+    //   <h2>Current Ayah:</h2>
+    //   <p>{ayahs[currentAyahIndex].text}</p>
+
+    //   <button onClick={togglePlayPause}>{isPlaying ? "Pause" : "Play"}</button>
+
+    //   <audio
+    //     ref={audioRef}
+    //     src={ayahs[currentAyahIndex].audio}
+    //     onEnded={handleAudioEnd}
+    //   />
+    // </div>
     <div className="audioCard">
       <div className="imgRotate">
         <img
@@ -171,18 +221,13 @@ export const MusicPlayer = () => {
           }
           alt="Album Art"
         />
-        <div className="name">
-          {clonedList.length
-            ? i18n.language == "ar"
-              ? surah?.name
-              : surah?.englishName
-            : i18n.language == "ar"
-            ? surah?.name
-            : surah?.englishName}
-          <p>{i18n.language == "ar" ? surah?.QuraName : surah?.QuraNameEng}</p>
-        </div>
+        <div className="name"></div>
       </div>
-      <audio ref={audioRef} />
+      <audio
+        onEnded={handleAudioEnd}
+        ref={audioRef}
+        src={ayahs[currentAyahIndex].audio}
+      />
 
       <div className="controls">
         <div className="control">
@@ -194,13 +239,9 @@ export const MusicPlayer = () => {
             // onClick={
             //   isPlaying ? audioRef.current.pause() : audioRef.current.play()
             // }
-            onClick={() => audioRef.current.play()}
+            onClick={togglePlayPause}
           >
-            {isPlaying && !audioRef.current.ended ? (
-              <ion-icon name="pause-circle-outline"></ion-icon>
-            ) : (
-              <ion-icon name="play-circle-outline"></ion-icon>
-            )}
+            <ion-icon name="play-circle-outline"></ion-icon>
           </button>
           <ion-icon
             name="play-forward-circle-outline"
@@ -208,7 +249,7 @@ export const MusicPlayer = () => {
           ></ion-icon>
         </div>
         <div className="progressData">
-          <p ref={durationRef}>00:00</p>
+          {/* <p ref={durationRef}>00:00</p> */}
           <div className="prog">
             <input
               id="progress"
@@ -216,24 +257,24 @@ export const MusicPlayer = () => {
               min="0"
               max="100"
               step="1"
-              value={progressWidth}
+              // value={progressWidth}
               // onChange={handleProgressChange}
             />
           </div>
-          <p ref={runningDurationRef}>00:00</p>
+          {/* <p ref={runningDurationRef}>00:00</p> */}
         </div>
       </div>
 
-      {/* <input
+      <input
         className="volumeRange"
         id="volumeRange"
         type="range"
         min="0"
         max="1"
         step="0.1"
-        value={volume}
-        onChange={handleVolumeChange}
-      /> */}
+        // value={volume}
+        // onChange={handleVolumeChange}
+      />
     </div>
   );
 };

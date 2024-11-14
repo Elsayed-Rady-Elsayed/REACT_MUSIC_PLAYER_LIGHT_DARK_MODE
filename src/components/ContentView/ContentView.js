@@ -3,7 +3,6 @@ import "./ContentView.css";
 import { useSelector } from "react-redux";
 const ContentView = () => {
   const surah = useSelector((state) => state.quran.currentSurah);
-  console.log(surah);
   const surahText = surah.ayahs?.map((el, idx) => {
     return (
       <span>
