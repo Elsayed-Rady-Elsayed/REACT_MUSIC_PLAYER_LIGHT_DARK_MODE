@@ -51,11 +51,11 @@ export const MusicList = () => {
           {i18n.language === "en" ? el.englishName : el.name}
         </p>
 
-        <p className="artist">
+        {/* <p className="artist">
           {i18n.language === "en"
             ? quran.quran.data.edition.englishName
             : quran.quran.data.edition.name}
-        </p>
+        </p> */}
       </div>
     </li>
   ));

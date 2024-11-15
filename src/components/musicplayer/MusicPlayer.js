@@ -60,9 +60,11 @@ export const MusicPlayer = () => {
           alt="Album Art"
         />
         <div className="name">
-          {surah?.name}-{surah?.englishName}
+          {surah?.name}
+          {/* {surah?.name}-{surah?.englishName} */}
           <p className="qaraName">
-            {edition?.name} ({edition?.englishName})
+            {edition?.name}
+            {/* {edition?.name} ({edition?.englishName}) */}
           </p>
         </div>
       </div>
