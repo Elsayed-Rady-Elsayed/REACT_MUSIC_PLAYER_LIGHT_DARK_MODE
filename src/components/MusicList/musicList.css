@@ -115,6 +115,9 @@
     width: 90%;
     display: none;
   }
+  .parent ul {
+    overflow: scroll;
+  }
   .show {
     display: block;
   }
