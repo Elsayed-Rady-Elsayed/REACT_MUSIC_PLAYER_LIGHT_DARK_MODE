@@ -14,7 +14,6 @@ export const MusicPlayer = () => {
     qaraName: surahidx.QuraName,
     NameEng: surahidx.QuraNameEng,
   };
-  console.log(edition);
 
   const [currentAyahIndex, setCurrentAyahIndex] = useState(0);
   const audioRef = useRef(null);

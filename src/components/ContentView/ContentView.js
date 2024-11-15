@@ -4,12 +4,16 @@ import { useSelector } from "react-redux";
 const ContentView = () => {
   const surah = useSelector((state) => state.quran.currentSurah);
   const surahText = surah.ayahs?.map((el, idx) => {
+    console.log(el.text);
+
     return (
-      <span>
+      <>
         {el.text}({idx + 1})
-      </span>
+      </>
     );
   });
+  // console.log(surahText);
+
   const [fontSize, setFontSize] = useState();
   return (
     <div className="textConent">
