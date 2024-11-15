@@ -7,12 +7,15 @@ import { setCurrentSurah } from "../../store/getQuran";
 export const MusicPlayer = () => {
   const { i18n } = useTranslation();
   const quran = useSelector((state) => state.quran.quran.data.surahs);
+  const edition = useSelector((state) => state.quran.quran.data.edition);
   const surahidx = useSelector((state) => state.quran.currentSurah);
   const surah = {
     ...quran[surahidx.idx],
     qaraName: surahidx.QuraName,
     NameEng: surahidx.QuraNameEng,
   };
+  console.log(edition);
+
   const [currentAyahIndex, setCurrentAyahIndex] = useState(0);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -60,7 +63,7 @@ export const MusicPlayer = () => {
         <div className="name">
           {surah?.name}-{surah?.englishName}
           <p className="qaraName">
-            {surah.qaraName} ({surah?.NameEng})
+            {edition?.name} ({edition?.englishName})
           </p>
         </div>
       </div>
@@ -81,8 +84,6 @@ export const MusicPlayer = () => {
                     current: {
                       idx: surahidx.idx - 1,
                       ...quran[surahidx.idx - 1],
-                      QuraName: surah.name,
-                      QuraNameEng: surah?.NameEng,
                     },
                   })
                 );
@@ -105,8 +106,6 @@ export const MusicPlayer = () => {
                   current: {
                     idx: surahidx.idx + 1,
                     ...quran[surahidx.idx + 1],
-                    QuraName: surah.name,
-                    QuraNameEng: surah?.NameEng,
                   },
                 })
               );

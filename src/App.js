@@ -20,22 +20,20 @@ function App() {
   }, []);
 
   const { i18n } = useTranslation();
-  const [content, setContent] = useState(<div>Loading...</div>);
+  const [content, setContent] = useState(<div className="loadingIcon"></div>);
   setTimeout(() => {
     setContent(
-      <div className={`content ${i18n.language === "ar" ? "arc" : "enc"}`}>
-        <MusicPlayer />
-        <MusicList />
-        <ContentView />
-      </div>
+      <>
+        <Header />
+        <div className={`content ${i18n.language === "ar" ? "arc" : "enc"}`}>
+          <MusicPlayer />
+          <MusicList />
+          <ContentView />
+        </div>
+      </>
     );
   }, 5000);
-  return (
-    <div className="App">
-      <Header />
-      {content}
-    </div>
-  );
+  return <div className="App">{content}</div>;
 }
 
 export default App;

@@ -40,6 +40,30 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+.loadingIcon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-width: 1px;
+  border-style: solid;
+  border-color: black black transparent black;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (max-width: 700px) {
   .content {
     height: 92vh !important;
