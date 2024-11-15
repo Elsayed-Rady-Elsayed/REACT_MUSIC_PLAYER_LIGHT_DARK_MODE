@@ -13,7 +13,7 @@ const ContentView = () => {
   const [fontSize, setFontSize] = useState();
   return (
     <div className="textConent">
-      <input
+      {/* <input
         type="number"
         placeholder="Font Size"
         value={fontSize}
@@ -23,7 +23,7 @@ const ContentView = () => {
         onChange={(e) => {
           setFontSize(e.target.value);
         }}
-      />
+      /> */}
       {/* <h1>بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1> */}
       <div style={{ fontSize: `${fontSize}px` }}>{surahText}</div>
     </div>
