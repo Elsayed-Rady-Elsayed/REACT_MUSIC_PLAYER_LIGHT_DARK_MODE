@@ -10,10 +10,22 @@ const ContentView = () => {
       </span>
     );
   });
+  const [fontSize, setFontSize] = useState();
   return (
     <div className="textConent">
+      <input
+        type="number"
+        placeholder="Font Size"
+        value={fontSize}
+        min={"10"}
+        max={"1000"}
+        step={"2"}
+        onChange={(e) => {
+          setFontSize(e.target.value);
+        }}
+      />
       <h1>بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1>
-      <div>{surahText}</div>
+      <div style={{ fontSize: `${fontSize}px` }}>{surahText}</div>
     </div>
   );
 };

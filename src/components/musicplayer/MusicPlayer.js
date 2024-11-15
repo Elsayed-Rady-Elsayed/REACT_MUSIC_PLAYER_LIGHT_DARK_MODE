@@ -9,7 +9,7 @@ export const MusicPlayer = () => {
   const [currentAyahIndex, setCurrentAyahIndex] = useState(0);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0);
+  const [volume, setVolume] = useState(1);
   const ayahs = surah.ayahs;
 
   useEffect(() => {
@@ -66,19 +66,12 @@ export const MusicPlayer = () => {
 
       <div className="controls">
         <div className="control">
-          <button
-            onClick={() => {
-              audioRef.current.play();
-            }}
-          >
-            <ion-icon name="play-circle-outline"></ion-icon>
-          </button>
-          <button
-            onClick={() => {
-              audioRef.current.pause();
-            }}
-          >
-            <ion-icon name="pause-circle-outline"></ion-icon>
+          <button onClick={togglePlayPause}>
+            {isPlaying ? (
+              <ion-icon name="pause-circle-outline"></ion-icon>
+            ) : (
+              <ion-icon name="play-circle-outline"></ion-icon>
+            )}
           </button>
         </div>
       </div>

@@ -1,7 +1,7 @@
 .textConent {
   padding: 10px;
-  width: fit-content;
-  font-size: 22px;
+  width: 100%;
+  /* font-size: 22px; */
   padding-bottom: 120px;
   display: flex;
   flex-direction: column;
@@ -17,4 +17,11 @@
     margin-bottom: 22px;
     width: fit-content;
   }
+}
+input {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-self: flex-start;
 }
