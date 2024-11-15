@@ -27,7 +27,7 @@ input {
 }
 @media screen and (max-width: 700px) {
   .textConent {
-    height: 100vh !important;
+    height: 96vh !important;
     margin-top: 10vh;
   }
 }
