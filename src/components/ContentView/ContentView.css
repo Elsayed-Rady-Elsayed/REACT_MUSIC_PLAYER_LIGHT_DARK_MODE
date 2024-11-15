@@ -10,7 +10,6 @@
   height: 80vh;
   overflow: scroll;
   color: var(--body-color);
-  font-family: Arial;
   h1 {
     margin-bottom: 22px;
   }
