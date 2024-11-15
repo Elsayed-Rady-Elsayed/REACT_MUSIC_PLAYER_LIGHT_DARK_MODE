@@ -19,11 +19,11 @@ export const MusicPlayer = () => {
   const [volume, setVolume] = useState(1);
   const ayahs = surah.ayahs;
   const dispatch = useDispatch();
-  console.log(quran);
+  console.log(ayahs);
 
   useEffect(() => {
     setCurrentAyahIndex(0);
-  }, [surah]);
+  }, [surahidx]);
 
   const handleAudioEnd = () => {
     if (currentAyahIndex < ayahs.length - 1) {

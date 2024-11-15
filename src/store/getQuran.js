@@ -46,7 +46,6 @@ const QuranSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.quran = action.payload;
-        console.log(state.quran);
       })
       .addCase(fetchAllQuran.rejected, (state, action) => {
         state.loading = false;

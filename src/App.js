@@ -17,11 +17,10 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllQuran());
-    console.log(loading);
   }, []);
 
   const { i18n } = useTranslation();
-  const [content, setContent] = useState(<div>loading</div>);
+  const [content, setContent] = useState(<div>Loading...</div>);
   setTimeout(() => {
     setContent(
       <div className={`content ${i18n.language === "ar" ? "arc" : "enc"}`}>

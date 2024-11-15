@@ -19,9 +19,9 @@ export const MusicList = () => {
     document.getElementById("parent").classList.remove("show");
   };
 
-  useEffect(() => {
-    dispatch(fetchAllQuran());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchAllQuran());
+  // }, []);
 
   const listOfSurah = quran.quran.data.surahs?.map((el, idx) => (
     <li
