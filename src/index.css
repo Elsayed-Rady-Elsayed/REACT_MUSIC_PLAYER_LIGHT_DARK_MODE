@@ -42,7 +42,7 @@ body {
 }
 @media screen and (max-width: 700px) {
   .content {
-    height: 98vh !important;
+    height: 92vh !important;
     flex-direction: column;
     width: 100%;
     align-items: center;
