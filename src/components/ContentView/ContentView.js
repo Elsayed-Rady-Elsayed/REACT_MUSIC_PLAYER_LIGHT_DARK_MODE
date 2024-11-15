@@ -24,7 +24,7 @@ const ContentView = () => {
           setFontSize(e.target.value);
         }}
       />
-      <h1>بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1>
+      {/* <h1>بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1> */}
       <div style={{ fontSize: `${fontSize}px` }}>{surahText}</div>
     </div>
   );
