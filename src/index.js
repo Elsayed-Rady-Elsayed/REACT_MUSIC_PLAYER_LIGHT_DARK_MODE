@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 let s = SongsList.map((el) => el.texten);
 i18n.init({
   interpolation: { escapeValue: false },
-  lng: "ar",
+  lng: "en",
   resources: {
     en: {
       translation: {
