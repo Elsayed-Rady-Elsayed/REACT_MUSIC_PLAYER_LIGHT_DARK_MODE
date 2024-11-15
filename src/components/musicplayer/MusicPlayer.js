@@ -19,7 +19,6 @@ export const MusicPlayer = () => {
   const [volume, setVolume] = useState(1);
   const ayahs = surah.ayahs;
   const dispatch = useDispatch();
-  console.log(ayahs);
 
   useEffect(() => {
     setCurrentAyahIndex(0);
@@ -74,18 +73,23 @@ export const MusicPlayer = () => {
       <div className="controls">
         <div className="control">
           <ion-icon
-            name="pause-circle-outline"
+            name="play-back-circle-outline"
             onClick={() => {
-              dispatch(
-                setCurrentSurah({
-                  current: {
-                    idx: surahidx + 1,
-                  },
-                })
-              );
+              if (surahidx.idx > 0) {
+                dispatch(
+                  setCurrentSurah({
+                    current: {
+                      idx: surahidx.idx - 1,
+                      ...quran[surahidx.idx - 1],
+                      QuraName: surah.name,
+                      QuraNameEng: surah?.NameEng,
+                    },
+                  })
+                );
+                setIsPlaying(false);
+              }
             }}
           ></ion-icon>
-
           <button onClick={togglePlayPause}>
             {isPlaying ? (
               <ion-icon name="pause-circle-outline"></ion-icon>
@@ -93,6 +97,22 @@ export const MusicPlayer = () => {
               <ion-icon name="play-circle-outline"></ion-icon>
             )}
           </button>
+          <ion-icon
+            name="play-forward-circle-outline"
+            onClick={() => {
+              dispatch(
+                setCurrentSurah({
+                  current: {
+                    idx: surahidx.idx + 1,
+                    ...quran[surahidx.idx + 1],
+                    QuraName: surah.name,
+                    QuraNameEng: surah?.NameEng,
+                  },
+                })
+              );
+              setIsPlaying(false);
+            }}
+          ></ion-icon>
         </div>
       </div>
 
