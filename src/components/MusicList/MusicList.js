@@ -36,6 +36,7 @@ export const MusicList = () => {
             },
           })
         );
+        document.getElementById("parent").classList.remove("show");
       }}
       key={idx}
       data-id={idx}
