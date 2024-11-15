@@ -260,6 +260,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  flex: 1;
 }
 .imgRotate .name {
   display: flex;
@@ -284,7 +285,9 @@
 }
 .controls {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
   align-items: center;
   color: var(--body-color);
 }
@@ -373,6 +376,7 @@
   .controls {
     align-items: center !important;
     justify-content: center !important;
+    flex-direction: column;
   }
   #volumeRange {
     margin: 0;
