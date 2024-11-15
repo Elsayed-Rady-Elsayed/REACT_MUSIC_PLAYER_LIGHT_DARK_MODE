@@ -28,50 +28,7 @@ const QuranSlice = createSlice({
     loading: false,
     error: null,
     currentSurah: {
-      QuraName: "مشاري العفاسي",
-      QuraNameEng: "Alafasy",
-      ayahs: [
-        {
-          number: 1,
-          text: "﻿بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
-          audio: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3",
-        },
-        {
-          number: 2,
-          text: "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
-          audio: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2.mp3",
-        },
-        {
-          number: 3,
-          text: "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
-          audio: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3.mp3",
-        },
-        {
-          number: 4,
-          text: "مَٰلِكِ يَوْمِ ٱلدِّينِ",
-          audio: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4.mp3",
-        },
-        {
-          number: 5,
-          text: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
-          audio: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5.mp3",
-        },
-        {
-          number: 6,
-          text: "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",
-          audio: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6.mp3",
-        },
-        {
-          number: 7,
-          text: "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ",
-          audio: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/7.mp3",
-        },
-      ],
-      englishName: "Al-Faatiha",
-      englishNameTranslation: "The Opening",
-      name: "سُورَةُ ٱلْفَاتِحَةِ",
-      number: 1,
-      revelationType: "Meccan",
+      idx: 0,
     },
   },
   reducers: {
@@ -89,6 +46,7 @@ const QuranSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.quran = action.payload;
+        console.log(state.quran);
       })
       .addCase(fetchAllQuran.rejected, (state, action) => {
         state.loading = false;

@@ -23,12 +23,13 @@ export const MusicList = () => {
     dispatch(fetchAllQuran());
   }, []);
 
-  const listOfSurah = quran.quran.data?.surahs?.map((el, idx) => (
+  const listOfSurah = quran.quran.data.surahs?.map((el, idx) => (
     <li
       onClick={() => {
         dispatch(
           setCurrentSurah({
             current: {
+              idx: idx,
               ...el,
               QuraName: quran.quran.data.edition.name,
               QuraNameEng: quran.quran.data.edition.englishName,

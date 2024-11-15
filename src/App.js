@@ -6,27 +6,35 @@ import { MusicPlayer } from "./components/musicplayer/MusicPlayer";
 import { useRecoilState } from "recoil";
 import { idxAtom } from "./components/recoil/idxAtom";
 import { SurahAtom } from "./components/recoil/surah";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ClickedAtom } from "./components/recoil/clcikedAtom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllQuran } from "./store/getQuran";
 import { useTranslation } from "react-i18next";
 
 function App() {
-  const quran = useSelector((state) => state.quran);
+  const { quran, loading, error } = useSelector((state) => state.quran);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllQuran());
+    console.log(loading);
   }, []);
+
   const { i18n } = useTranslation();
-  return (
-    <div className="App">
-      <Header />
-      <div className={`content ${i18n.language === "en" ? "enc" : "arc"}`}>
+  const [content, setContent] = useState(<div>loading</div>);
+  setTimeout(() => {
+    setContent(
+      <div className={`content ${i18n.language === "ar" ? "arc" : "enc"}`}>
         <MusicPlayer />
         <MusicList />
         <ContentView />
       </div>
+    );
+  }, 5000);
+  return (
+    <div className="App">
+      <Header />
+      {content}
     </div>
   );
 }

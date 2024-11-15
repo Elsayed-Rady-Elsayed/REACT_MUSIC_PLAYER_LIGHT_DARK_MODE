@@ -1,16 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./musicPlayer.css";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentSurah } from "../../store/getQuran";
 
 export const MusicPlayer = () => {
   const { i18n } = useTranslation();
-  const surah = useSelector((state) => state.quran.currentSurah);
+  const quran = useSelector((state) => state.quran.quran.data.surahs);
+  const surahidx = useSelector((state) => state.quran.currentSurah);
+  const surah = {
+    ...quran[surahidx.idx],
+    name: surahidx.QuraName,
+    NameEng: surahidx.QuraNameEng,
+  };
   const [currentAyahIndex, setCurrentAyahIndex] = useState(0);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
   const ayahs = surah.ayahs;
+  const dispatch = useDispatch();
+  console.log(quran);
 
   useEffect(() => {
     setCurrentAyahIndex(0);
@@ -20,7 +29,7 @@ export const MusicPlayer = () => {
     if (currentAyahIndex < ayahs.length - 1) {
       setCurrentAyahIndex(currentAyahIndex + 1);
     } else {
-      setIsPlaying(false); // Stop playing at the end of the surah
+      setIsPlaying(false);
     }
   };
 
@@ -40,8 +49,6 @@ export const MusicPlayer = () => {
     }
   }, [currentAyahIndex, isPlaying, volume]);
 
-  console.log(surah);
-
   return (
     <div className={`audioCard ${i18n.language === "en" ? "ena" : "ara"}`}>
       <div className={`imgRotate ${i18n.language === "en" ? "enn" : "arn"}`}>
@@ -52,20 +59,33 @@ export const MusicPlayer = () => {
           alt="Album Art"
         />
         <div className="name">
-          {surah.name}-{surah.englishName}
+          {surah?.name}-{surah?.englishName}
           <p className="qaraName">
-            {surah.QuraName} ({surah.QuraNameEng})
+            {surah.name} ({surah?.NameEng})
           </p>
         </div>
       </div>
       <audio
         onEnded={handleAudioEnd}
         ref={audioRef}
-        src={ayahs[currentAyahIndex].audio}
+        src={ayahs[currentAyahIndex]?.audio}
       />
 
       <div className="controls">
         <div className="control">
+          <ion-icon
+            name="pause-circle-outline"
+            onClick={() => {
+              dispatch(
+                setCurrentSurah({
+                  current: {
+                    idx: surahidx + 1,
+                  },
+                })
+              );
+            }}
+          ></ion-icon>
+
           <button onClick={togglePlayPause}>
             {isPlaying ? (
               <ion-icon name="pause-circle-outline"></ion-icon>
