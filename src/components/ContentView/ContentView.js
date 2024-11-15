@@ -29,7 +29,9 @@ const ContentView = () => {
         }}
       />
       {/* <h1>بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1> */}
-      <div style={{ fontSize: `${fontSize}px` }}>{surahText}</div>
+      <div dir="rtl" lang="ar" style={{ fontSize: `${fontSize}px` }}>
+        {surahText}
+      </div>
     </div>
   );
 };
