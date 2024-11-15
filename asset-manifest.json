@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/REACT_QURAN_PLAYER/static/css/main.145effc9.css",
-    "main.js": "/REACT_QURAN_PLAYER/static/js/main.f42ac9ac.js",
+    "main.js": "/REACT_QURAN_PLAYER/static/js/main.72e2b603.js",
     "static/js/453.b0bb07a3.chunk.js": "/REACT_QURAN_PLAYER/static/js/453.b0bb07a3.chunk.js",
     "static/media/040.mp3": "/REACT_QURAN_PLAYER/static/media/040.a3eab88e10973cd8ce78.mp3",
     "static/media/042.mp3": "/REACT_QURAN_PLAYER/static/media/042.8d50bb9023c96b7df610.mp3",
@@ -15,11 +15,11 @@
     "static/media/Elminshwey.jpg": "/REACT_QURAN_PLAYER/static/media/Elminshwey.64144053de37fe829169.jpg",
     "index.html": "/REACT_QURAN_PLAYER/index.html",
     "main.145effc9.css.map": "/REACT_QURAN_PLAYER/static/css/main.145effc9.css.map",
-    "main.f42ac9ac.js.map": "/REACT_QURAN_PLAYER/static/js/main.f42ac9ac.js.map",
+    "main.72e2b603.js.map": "/REACT_QURAN_PLAYER/static/js/main.72e2b603.js.map",
     "453.b0bb07a3.chunk.js.map": "/REACT_QURAN_PLAYER/static/js/453.b0bb07a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.145effc9.css",
-    "static/js/main.f42ac9ac.js"
+    "static/js/main.72e2b603.js"
   ]
 }
