@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 let s = SongsList.map((el) => el.texten);
 i18n.init({
   interpolation: { escapeValue: false },
-  lng: "en",
+  lng: "ar",
   resources: {
     en: {
       translation: {
@@ -21,7 +21,7 @@ i18n.init({
         langs: "language",
         textQuran: SongsList.map((el) => el.texten),
         qara: "Elmenshawy",
-        surahShow: "quran",
+        surahShow: "surahs",
       },
     },
     ar: {
@@ -30,7 +30,7 @@ i18n.init({
         langs: "اللغات",
         textQuran: SongsList.map((el) => el.text),
         qara: "المنشاوي",
-        surahShow: "القران",
+        surahShow: "السُوَر",
       },
     },
   },
