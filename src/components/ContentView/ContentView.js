@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import "./ContentView.css";
 import { useSelector } from "react-redux";
 const ContentView = () => {
-  const surah = useSelector((state) => state.quran.currentSurah);
+  // const surah = useSelector((state) => state.quran.currentSurah);
+  const quran = useSelector((state) => state.quran.quran.data.surahs);
+  const surahidx = useSelector((state) => state.quran.currentSurah);
+  const surah = {
+    ...quran[surahidx.idx],
+  };
+
   const surahText = surah.ayahs?.map((el, idx) => {
     return (
       <>
