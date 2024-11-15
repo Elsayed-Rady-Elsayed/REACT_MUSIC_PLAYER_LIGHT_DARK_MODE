@@ -3,6 +3,7 @@ import "./header.css";
 import { Toggle } from "../toggle/Toggle";
 import SongsList from "../../listOfSongs";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 export const Header = () => {
   const showList = () => {
     console.log("ok");
@@ -12,6 +13,7 @@ export const Header = () => {
   const { t } = useTranslation();
   const { i18n } = useTranslation();
   const [headerState, setHeaderArabic] = useState(false);
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     if (lng == "ar") {
@@ -26,16 +28,7 @@ export const Header = () => {
         <h2>{t("headerTitle")}</h2>
       </div>
       <div className="right-controll">
-        <span
-          className="notify"
-          onClick={() => {
-            console.log("dfsa");
-            showList();
-          }}
-        >
-          <span className="circle">{SongsList.length}</span>
-          <ion-icon name="list-circle-outline"></ion-icon>{" "}
-        </span>
+        <span className="notify" onClick={showList}></span>
         <div className="dropdown">
           <button>
             <span>{t("langs")}</span>

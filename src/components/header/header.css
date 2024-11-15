@@ -95,3 +95,12 @@
   background-color: var(--body-color);
   color: var(--body-backGround);
 }
+@media screen and (max-width: 700px) {
+  .header {
+    /* height: 20vh !important; */
+    position: relative;
+    z-index: 111;
+    width: 100%;
+    top: 0;
+  }
+}

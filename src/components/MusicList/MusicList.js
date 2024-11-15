@@ -16,8 +16,6 @@ export const MusicList = () => {
     }
   }, [i18n.language]);
   const hideList = () => {
-    console.log("clik");
-
     document.getElementById("parent").classList.remove("show");
   };
 
