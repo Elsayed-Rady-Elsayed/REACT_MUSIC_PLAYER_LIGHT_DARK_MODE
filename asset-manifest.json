@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.145effc9.css",
-    "main.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.59c6aa4b.js",
-    "static/js/453.b0bb07a3.chunk.js": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js",
-    "static/media/040.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/040.a3eab88e10973cd8ce78.mp3",
-    "static/media/042.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/042.8d50bb9023c96b7df610.mp3",
-    "static/media/038.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/038.a7ce6a4ad855656be4b7.mp3",
-    "static/media/056.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/056.d8a536601f8ea22c4c6e.mp3",
-    "static/media/050.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/050.63164953422ec69a4edb.mp3",
-    "static/media/101.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/101.09d996697ee1b38781e0.mp3",
-    "static/media/001.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/001.3a8a4e32b90a8ab912c3.mp3",
-    "static/media/102.mp3": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/102.dfed20752de81f1e9b73.mp3",
-    "static/media/elmanshawy2.jpg": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/elmanshawy2.42bc9182b4b05f66a20e.jpg",
-    "static/media/Elminshwey.jpg": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/media/Elminshwey.64144053de37fe829169.jpg",
-    "index.html": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/index.html",
-    "main.145effc9.css.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/css/main.145effc9.css.map",
-    "main.59c6aa4b.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/main.59c6aa4b.js.map",
-    "453.b0bb07a3.chunk.js.map": "/REACT_MUSIC_PLAYER_LIGHT_DARK_MODE/static/js/453.b0bb07a3.chunk.js.map"
+    "main.css": "/REACT_QURAN_PLAYER/static/css/main.145effc9.css",
+    "main.js": "/REACT_QURAN_PLAYER/static/js/main.be22dd4c.js",
+    "static/js/453.b0bb07a3.chunk.js": "/REACT_QURAN_PLAYER/static/js/453.b0bb07a3.chunk.js",
+    "static/media/040.mp3": "/REACT_QURAN_PLAYER/static/media/040.a3eab88e10973cd8ce78.mp3",
+    "static/media/042.mp3": "/REACT_QURAN_PLAYER/static/media/042.8d50bb9023c96b7df610.mp3",
+    "static/media/038.mp3": "/REACT_QURAN_PLAYER/static/media/038.a7ce6a4ad855656be4b7.mp3",
+    "static/media/056.mp3": "/REACT_QURAN_PLAYER/static/media/056.d8a536601f8ea22c4c6e.mp3",
+    "static/media/050.mp3": "/REACT_QURAN_PLAYER/static/media/050.63164953422ec69a4edb.mp3",
+    "static/media/101.mp3": "/REACT_QURAN_PLAYER/static/media/101.09d996697ee1b38781e0.mp3",
+    "static/media/001.mp3": "/REACT_QURAN_PLAYER/static/media/001.3a8a4e32b90a8ab912c3.mp3",
+    "static/media/102.mp3": "/REACT_QURAN_PLAYER/static/media/102.dfed20752de81f1e9b73.mp3",
+    "static/media/elmanshawy2.jpg": "/REACT_QURAN_PLAYER/static/media/elmanshawy2.42bc9182b4b05f66a20e.jpg",
+    "static/media/Elminshwey.jpg": "/REACT_QURAN_PLAYER/static/media/Elminshwey.64144053de37fe829169.jpg",
+    "index.html": "/REACT_QURAN_PLAYER/index.html",
+    "main.145effc9.css.map": "/REACT_QURAN_PLAYER/static/css/main.145effc9.css.map",
+    "main.be22dd4c.js.map": "/REACT_QURAN_PLAYER/static/js/main.be22dd4c.js.map",
+    "453.b0bb07a3.chunk.js.map": "/REACT_QURAN_PLAYER/static/js/453.b0bb07a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.145effc9.css",
-    "static/js/main.59c6aa4b.js"
+    "static/js/main.be22dd4c.js"
   ]
 }
