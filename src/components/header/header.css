@@ -34,22 +34,12 @@
 .header .right-controll .notify,
 .header-ar .right-controll .notify {
   position: relative;
-  margin-top: 3px;
-}
-.header .right-controll .notify span,
-.header-ar .right-controll .notify span {
-  position: absolute;
-  top: -2px;
-  right: 0;
-  font-size: 8px;
-  text-align: center;
-  z-index: 2;
+  cursor: pointer;
+  padding: 3px 15px;
   background-color: var(--body-color);
   color: var(--body-backGround);
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
 }
+
 .header .right-controll span ion-icon,
 .header-ar .right-controll span ion-icon {
   color: var(--body-color);
@@ -96,7 +86,8 @@
   color: var(--body-backGround);
 }
 @media screen and (max-width: 700px) {
-  .header {
+  .header,
+  .header-ar {
     /* height: 20vh !important; */
     position: relative;
     z-index: 111;

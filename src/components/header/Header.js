@@ -28,7 +28,9 @@ export const Header = () => {
         <h2>{t("headerTitle")}</h2>
       </div>
       <div className="right-controll">
-        <span className="notify" onClick={showList}></span>
+        <span className="notify" onClick={showList}>
+          {t("surahShow")}
+        </span>
         <div className="dropdown">
           <button>
             <span>{t("langs")}</span>

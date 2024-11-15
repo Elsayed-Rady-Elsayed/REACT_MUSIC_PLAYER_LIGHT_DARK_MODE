@@ -21,6 +21,7 @@ i18n.init({
         langs: "language",
         textQuran: SongsList.map((el) => el.texten),
         qara: "Elmenshawy",
+        surahShow: "quran",
       },
     },
     ar: {
@@ -29,6 +30,7 @@ i18n.init({
         langs: "اللغات",
         textQuran: SongsList.map((el) => el.text),
         qara: "المنشاوي",
+        surahShow: "القران",
       },
     },
   },
