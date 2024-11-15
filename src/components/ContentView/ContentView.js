@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 const ContentView = () => {
   const surah = useSelector((state) => state.quran.currentSurah);
   const surahText = surah.ayahs?.map((el, idx) => {
-    console.log(el.text);
-
     return (
       <>
         {el.text}({idx + 1})
