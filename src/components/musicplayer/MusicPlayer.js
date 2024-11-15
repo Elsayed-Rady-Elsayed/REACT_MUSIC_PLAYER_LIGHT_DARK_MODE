@@ -10,7 +10,7 @@ export const MusicPlayer = () => {
   const surahidx = useSelector((state) => state.quran.currentSurah);
   const surah = {
     ...quran[surahidx.idx],
-    name: surahidx.QuraName,
+    qaraName: surahidx.QuraName,
     NameEng: surahidx.QuraNameEng,
   };
   const [currentAyahIndex, setCurrentAyahIndex] = useState(0);
@@ -60,7 +60,7 @@ export const MusicPlayer = () => {
         <div className="name">
           {surah?.name}-{surah?.englishName}
           <p className="qaraName">
-            {surah.name} ({surah?.NameEng})
+            {surah.qaraName} ({surah?.NameEng})
           </p>
         </div>
       </div>
@@ -114,20 +114,19 @@ export const MusicPlayer = () => {
             }}
           ></ion-icon>
         </div>
+        <input
+          className="volumeRange"
+          id="volumeRange"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value={volume}
+          onChange={(e) => {
+            setVolume(e.target.value);
+          }}
+        />
       </div>
-
-      <input
-        className="volumeRange"
-        id="volumeRange"
-        type="range"
-        min="0"
-        max="1"
-        step="0.1"
-        value={volume}
-        onChange={(e) => {
-          setVolume(e.target.value);
-        }}
-      />
     </div>
   );
 };

@@ -5,6 +5,8 @@ import SongsList from "../../listOfSongs";
 import { useTranslation } from "react-i18next";
 export const Header = () => {
   const showList = () => {
+    console.log("ok");
+
     document.getElementById("parent").classList.toggle("show");
   };
   const { t } = useTranslation();
@@ -24,12 +26,15 @@ export const Header = () => {
         <h2>{t("headerTitle")}</h2>
       </div>
       <div className="right-controll">
-        <span className="notify">
+        <span
+          className="notify"
+          onClick={() => {
+            console.log("dfsa");
+            showList();
+          }}
+        >
           <span className="circle">{SongsList.length}</span>
-          <ion-icon
-            onClick={showList}
-            name="list-circle-outline"
-          ></ion-icon>{" "}
+          <ion-icon name="list-circle-outline"></ion-icon>{" "}
         </span>
         <div className="dropdown">
           <button>

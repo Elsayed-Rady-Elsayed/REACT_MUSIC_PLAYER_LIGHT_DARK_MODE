@@ -366,3 +366,18 @@
   cursor: pointer;
   margin-top: -6px;
 }
+@media screen and (max-width: 700px) {
+  .audioCard {
+    /* flex-direction: column; */
+  }
+  .controls {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #volumeRange {
+    margin: 0;
+  }
+  .imgRotate {
+    /* flex-direction: column; */
+  }
+}

@@ -16,14 +16,16 @@ export const MusicList = () => {
     }
   }, [i18n.language]);
   const hideList = () => {
+    console.log("clik");
+
     document.getElementById("parent").classList.remove("show");
   };
 
-  // useEffect(() => {
-  //   dispatch(fetchAllQuran());
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchAllQuran());
+  }, []);
 
-  const listOfSurah = quran.quran.data.surahs?.map((el, idx) => (
+  const listOfSurah = quran.quran.data?.surahs?.map((el, idx) => (
     <li
       onClick={() => {
         dispatch(
